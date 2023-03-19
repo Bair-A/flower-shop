@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 125px 0;
+}
+
+.menu {
+  display: flex;
+}
+
+.menuItem {
+  margin: 0 50px 0 0;
+  font-size: 16px;
+  &:last-child {
+    margin: 0;
+  }
+  a {
+    color: white;
+  }
+}
+
+.iconsPanel {
+  a {
+    margin: 0 0 0 20px;
+    color: white;
+    &:first-child {
+      margin: 0;
+    }
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
