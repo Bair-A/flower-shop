@@ -21,7 +21,7 @@ const PlantStands = () => {
             <h2 className={styles.header}>Plant stands</h2>
             <a className={styles.showFlowerGallery} href="#">view all</a>
          </div>
-         <div className={styles.galleryWrapper}>
+         <div className={styles.cards}>
             {!productsArr.length ?
                <h3>Please hold</h3> :
                productsArr.map((item, index) => (

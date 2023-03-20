@@ -4,12 +4,18 @@
   align-items: center;
   margin: 55px 0;
 }
-.galleryWrapper {
+
+.cards {
+  display: flex;
+}
+
+.flexContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 55px 0;
 }
+
 .header {
   font-weight: 400;
   font-size: 40px;
@@ -62,6 +68,7 @@
   border-radius: 50%;
   border: 1px solid #004F44;
   margin: 0 5px 0 0;
+
   &:last-child {
     margin: 0;
   }
@@ -70,12 +77,15 @@
 .black {
   background-color: #000;
 }
+
 .ocher {
   background-color: #F3A195;
 }
+
 .white {
   background-color: #EFEAE6;
 }
+
 .brown {
   background-color: #C38364;
 }
