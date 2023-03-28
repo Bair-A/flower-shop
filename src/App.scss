@@ -1,5 +1,25 @@
+@font-face {
+  font-family: 'Chillax-Medium';
+  src: url('./Fonts/Chillax-Medium.woff2') format('woff2'),
+  url('./Fonts/Chillax-Medium.woff') format('woff'),
+  url('./Fonts/Chillax-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax-Regular';
+  src: url('./Fonts/Chillax-Regular.woff2') format('woff2'),
+  url('./Fonts/Chillax-Regular.woff') format('woff'),
+  url('./Fonts/Chillax-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
 .App {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', 'Chillax-Medium', sans-serif;
   font-weight: 400;
   color: #EFF7F5;
 }

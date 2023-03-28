@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
+import {FiShoppingCart, FiUser, FiSearch} from "react-icons/fi";
 import styles from './Header.module.scss';
 
 const Header = () => {

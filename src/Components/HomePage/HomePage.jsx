@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from './Header';
-import FirstPageContent from './FirstPageContent';
+import HomePageContent from './HomePageContent';
 
-const FirstPage = () => {
+const HomePage = () => {
    return (
       <div className='main'>
          <div className="container">
             <Header/>
-            <FirstPageContent/>
+            <HomePageContent/>
          </div>
       </div>
    );
 };
 
-export default FirstPage;
+export default HomePage;

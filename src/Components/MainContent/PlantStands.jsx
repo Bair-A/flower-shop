@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import styles from "./FlowerGallery.module.scss";
+import styles from "./PlantStands.module.scss";
 
 
 const PlantStands = () => {
@@ -38,10 +38,10 @@ const PlantStands = () => {
                            <div className="potColor">
                               <span>Pot color</span>
                               <div className={styles.colors}>
-                                 <div className={[styles.color, styles.black].join(' ')}></div>
-                                 <div className={[styles.color, styles.ocher].join(' ')}></div>
-                                 <div className={[styles.color, styles.white].join(' ')}></div>
-                                 <div className={[styles.color, styles.brown].join(' ')}></div>
+                                 {/*<div className={[styles.color, styles.black].join(' ')}></div>*/}
+                                 {/*<div className={[styles.color, styles.ocher].join(' ')}></div>*/}
+                                 {/*<div className={[styles.color, styles.white].join(' ')}></div>*/}
+                                 {/*<div className={[styles.color, styles.brown].join(' ')}></div>*/}
                               </div>
                            </div>
                            <button className={styles.btn}>Byu</button>

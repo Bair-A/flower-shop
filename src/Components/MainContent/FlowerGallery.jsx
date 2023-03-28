@@ -12,6 +12,11 @@ const FlowerGallery = () => {
    async function fetchFlowers() {
       const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1');
       setFlowersArr(response.data);
+      try {
+
+      } catch (e) {
+         alert(e.text);
+      }
    }
    useEffect( () => {fetchFlowers()}, []);
    const settings = {

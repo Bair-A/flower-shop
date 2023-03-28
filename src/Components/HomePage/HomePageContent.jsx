@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from "./FirstPageContent.module.scss";
+import styles from "./HomePageContent.module.scss";
 import {FaLongArrowAltRight} from "react-icons/fa";
 
-const FirstPageContent = () => {
+
+const HomePageContent = () => {
    return (
       <div className={styles.container}>
          <div className={styles.textContainer}>
@@ -21,15 +22,15 @@ const FirstPageContent = () => {
          <div className={styles.gallery}>
             <div className={styles.leftSideGallery}>
                <div className={styles.card}>
-                  <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg" alt="#"/>
+                  <img src={process.env.PUBLIC_URL + '/img/home/home_1.jpg'} alt="#"/>
                </div>
                <div className={styles.card}>
-                  <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg" alt="#"/>
+                  <img src={process.env.PUBLIC_URL + '/img/home/home_2.jpg'} alt="#"/>
                </div>
             </div>
             <div className={styles.rightSideGallery}>
                <div className={styles.card}>
-                  <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__340.jpg" alt="#"/>
+                  <img src={process.env.PUBLIC_URL + '/img/home/home_3.jpg'} alt="#"/>
                </div>
             </div>
          </div>
@@ -37,4 +38,4 @@ const FirstPageContent = () => {
    );
 };
 
-export default FirstPageContent;
+export default HomePageContent;
