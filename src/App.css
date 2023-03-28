@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "Chillax-Medium";
+  src: url("./Fonts/Chillax-Medium.woff2") format("woff2"), url("./Fonts/Chillax-Medium.woff") format("woff"), url("./Fonts/Chillax-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Chillax-Regular";
+  src: url("./Fonts/Chillax-Regular.woff2") format("woff2"), url("./Fonts/Chillax-Regular.woff") format("woff"), url("./Fonts/Chillax-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+.App {
+  font-family: "DM Sans", "Chillax-Medium", sans-serif;
+  font-weight: 400;
+  color: #EFF7F5;
+}
+
+/* reset styles */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.main {
+  background-color: #004F44;
+  padding: 55px 0 95px 0;
+}
+
+/*# sourceMappingURL=App.css.map */
