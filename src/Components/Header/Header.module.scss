@@ -1,7 +1,21 @@
+.header {
+  background-color: #004F44;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
 .container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 0 0 125px 0;
+  padding: 30px 0;
 }
 
 .menu {
@@ -11,9 +25,11 @@
 .menuItem {
   margin: 0 50px 0 0;
   font-size: 16px;
+
   &:last-child {
     margin: 0;
   }
+
   a {
     color: white;
   }
@@ -23,6 +39,7 @@
   a {
     margin: 0 0 0 20px;
     color: white;
+
     &:first-child {
       margin: 0;
     }

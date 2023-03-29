@@ -1,4 +1,14 @@
+.homePage {
+  background-color: #004F44;
+}
+
 .container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 90px 0 60px 0;
+}
+
+.contentWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,7 +18,7 @@
   max-width: 420px;
 }
 
-.mainTitle {
+.title {
   font-family: 'Chillax-Medium';
   font-weight: 500;
   font-size: 64px;
@@ -45,33 +55,12 @@
 }
 
 .gallery {
-  display: flex;
-  gap: 0.5%;
-  max-width: 610px;
-  width: 100%;
-  height: 550px;
-  background-color: #FFFF99;
+  display: grid;
+  gap: 5px;
+  grid-template: repeat(2, minmax(100px, 260px)) / repeat(3, minmax(100px, 220px))
 }
 
-.leftSideGallery {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5%;
-  width: 33.33%;
-}
-
-.rightSideGallery {
-  width: 66.66%;
-  height: 100%;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.galleryItemBig {
+  grid-column: span 2;
+  grid-row: span 2;
 }
