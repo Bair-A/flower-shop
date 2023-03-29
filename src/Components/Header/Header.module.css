@@ -1,0 +1,49 @@
+.header {
+  background-color: #004F44;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.menu {
+  display: flex;
+}
+
+.menuItem {
+  margin: 0 50px 0 0;
+  font-size: 16px;
+}
+.menuItem:last-child {
+  margin: 0;
+}
+.menuItem a {
+  color: white;
+}
+
+.iconsPanel a {
+  margin: 0 0 0 20px;
+  color: white;
+}
+.iconsPanel a:first-child {
+  margin: 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/*# sourceMappingURL=Header.module.css.map */
