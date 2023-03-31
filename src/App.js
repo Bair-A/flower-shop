@@ -1,9 +1,10 @@
 import './App.scss';
 import HomePage from './Components/HomePage/HomePage';
 import FlowerGallery from './Components/FlowerGallery/FlowerGallery';
-import PlantStands from './Components/PlantStands/PlantStands';
+import PotsGallery from './Components/PotsGallery/PotsGallery';
 import Header from './Components/Header/Header';
-
+import Contacts from './Components/Contacts/Contacts';
+import CustomersReviews from "./Components/CustomersReviews/CustomersReviews";
 
 function App() {
    return (
@@ -11,7 +12,8 @@ function App() {
          <Header/>
          <HomePage/>
          <FlowerGallery/>
-         <PlantStands/>
+         <PotsGallery/>
+         <CustomersReviews/>
       </div>
    );
 }

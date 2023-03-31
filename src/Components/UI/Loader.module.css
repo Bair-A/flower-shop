@@ -1,9 +1,9 @@
 .container {
-  position: fixed;
   z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 480px;
 }
 
 .loader {
@@ -14,7 +14,7 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
   color: #004F44;
-  background-color: #ddd;
+  background-color: #fff;
   -webkit-animation: loading 1s ease infinite;
   -o-animation: loading 1s ease infinite;
   animation: loading 1s ease infinite;

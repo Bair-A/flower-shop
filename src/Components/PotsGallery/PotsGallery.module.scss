@@ -1,12 +1,20 @@
+.wrapper {
+  padding: 80px 0 60px;
+}
+
 .headerWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 55px 0;
+  margin: 0 0 60px 0;
+  color: #004F44;
 }
 
 .cards {
-  display: flex;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(480px, 1fr));
 }
 
 .flexContainer {
@@ -20,13 +28,11 @@
   font-weight: 400;
   font-size: 40px;
   line-height: 48px;
-  color: #004F44;
 }
 
 .showFlowerGallery {
   font-size: 24px;
   line-height: 29px;
-  color: #004F44;
 }
 
 .imgWrapper {
@@ -38,11 +44,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.card {
-  width: 280px;
-  height: 480px;
 }
 
 .cardText {
@@ -68,9 +69,10 @@
   border-radius: 50%;
   border: 1px solid #004F44;
   margin: 0 5px 0 0;
-}
-.color:last-child {
-  margin: 0;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 .black {
@@ -93,6 +95,7 @@
   margin: 30px 0 0 0;
   display: flex;
   justify-content: space-between;
+  color: #004F44;
 }
 
 .btn {
@@ -102,4 +105,16 @@
   border: 1px solid #004F44;
 }
 
-/*# sourceMappingURL=PlantStands.module.css.map */
+.loadMoreBtn {
+  display: block;
+  margin: 40px auto 0;
+  width: 155px;
+  height: 60px;
+  background-color: #004F44;
+  color: #fff;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

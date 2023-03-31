@@ -21,6 +21,7 @@ const Header = () => {
                      <a href="#">Guide</a>
                   </li>
                </ul>
+               <img src={process.env.PUBLIC_URL + '/img/Logo.svg'} alt=""/>
                <div className={styles.iconsPanel}>
                   <a href="#"><FiSearch className={styles.icon}/></a>
                   <a href="#"><FiUser className={styles.icon}/></a>

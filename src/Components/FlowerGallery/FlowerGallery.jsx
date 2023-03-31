@@ -3,7 +3,7 @@ import styles from "./FlowerGallery.module.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import flowersApiImitation from "../flowersApiImitation";
+import {flowers} from "../mock";
 import Loader from "../UI/Loader";
 
 
@@ -12,13 +12,13 @@ const FlowerGallery = () => {
    const [showLoader, setShowLoader] = useState(false);
 
    async function fetchFlowers() {
+      // I use fake fetch because i couldn't find  suitable API
       try {
-         setShowLoader(true);
-         // I use fake fetch because i couldn't find  suitable API
          // const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1');
          // setFlowersArr(response.data);
+         setShowLoader(true);
          await new Promise(resolve => setTimeout(resolve, 1000));
-         setFlowersArr(flowersApiImitation)
+         setFlowersArr(flowers)
       } catch (e) {
          alert(e.message);
       } finally {
@@ -64,7 +64,7 @@ const FlowerGallery = () => {
       ]
    };
    return (
-      <div className='container'>
+      <div className={styles.container}>
          <div className={styles.headerWrapper}>
             <h2 className={styles.header}>Flower gallery</h2>
             <a className={styles.showFlowerGallery} href="#">view all</a>
