@@ -107,10 +107,42 @@
 
 .loadMoreBtn {
   display: block;
+  position: relative;
+  overflow: hidden;
   margin: 40px auto 0;
   width: 155px;
   height: 60px;
   background-color: #004F44;
+  color: #fff;
+
+  &:hover .btnDecorationTop {
+    transform: scale(1.4) rotate(0);
+  }
+
+  &:hover .btnDecorationBottom {
+    transform: scale(1.4) rotate(180deg);
+  }
+}
+
+.btnDecorationTop {
+  position: absolute;
+  left: 7%;
+  top: 0;
+  transform-origin: right top;
+  transform: rotate(90deg);
+  font-size: 25px;
+  transition: linear .3s;
+  color: #fff;
+}
+
+.btnDecorationBottom {
+  position: absolute;
+  right: -16%;
+  bottom: -40%;
+  transform-origin: left top;
+  font-size: 25px;
+  transform: rotate(90deg);
+  transition: linear .3s;
   color: #fff;
 }
 

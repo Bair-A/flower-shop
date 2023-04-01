@@ -30,6 +30,13 @@
 .menuItem:last-child {
   margin: 0;
 }
+.menuItem:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  color: #fff;
+}
 .menuItem a {
   color: white;
 }

@@ -403,3 +403,62 @@ export const pots = [
       id: 20,
    }
 ];
+
+export const reviews = [
+   {
+      date: '25.07.2022',
+      name: 'Billy',
+      review: 'Lorem ipsum dolor sit amet, ' +
+         'consectetur adipiscing elit. Etiam ultrices, ' +
+         'justo vel porta consectetur, ' +
+         'nisl dolor scelerisque mauris.',
+      img: process.env.PUBLIC_URL + '/img/customers-reviews/1.jpg',
+      id: 1,
+      rating: 5,
+   },
+   {
+      date: '05.01.2023',
+      name: 'Molly',
+      review: 'Lorem ipsum dolor sit amet, ' +
+         'consectetur adipiscing elit. Etiam ultrices, ' +
+         'nisl dolor scelerisque mauris.',
+      img: process.env.PUBLIC_URL + '/img/customers-reviews/2.jpg',
+      id: 2,
+      rating: 4,
+   },
+   {
+      date: '11.12.2022',
+      name: 'Greg',
+      review: 'Lorem ipsum dolor sit amet, ' +
+         'consectetur adipiscing elit. Etiam ultrices, ' +
+         'justo vel porta consectetur, ' +
+         'nisl dolor scelerisque mauris.',
+      img: process.env.PUBLIC_URL + '/img/customers-reviews/3.jpg',
+      id: 3,
+      rating: 3,
+   },
+   {
+      date: '01.03.2022',
+      name: 'Anna',
+      review: 'Lorem ipsum dolor sit amet, ' +
+         'consectetur adipiscing elit. Etiam ultrices, ' +
+         'justo vel porta consectetur, ' +
+         'nisl dolor scelerisque mauris.' +
+         'lorem consectetur adipiscing elit ' +
+         'consectetur adipiscing elit. Etiam ultrices',
+      img: process.env.PUBLIC_URL + '/img/customers-reviews/4.jpg',
+      id: 4,
+      rating: 5,
+   },
+   {
+      date: '21.05.2022',
+      name: 'Marry',
+      review: 'Lorem ipsum dolor sit amet, ' +
+         'consectetur adipiscing elit. Etiam ultrices, ' +
+         'justo vel porta consectetur, ' +
+         'nisl dolor scelerisque mauris.' +
+         'nisl dolor scelerisque mauris',
+      img: process.env.PUBLIC_URL + '/img/customers-reviews/5.jpg',
+      id: 5,
+      rating: 5,
+   }]

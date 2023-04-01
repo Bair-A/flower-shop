@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./HomePage.module.scss";
 import {FaLongArrowAltRight} from "react-icons/fa";
 import HomePageFlowerCard from "../HomePageFlowerCard/HomePageFlowerCard";
+import {GiVineLeaf} from "react-icons/gi";
 
 const HomePage = () => {
    return (
@@ -16,7 +17,9 @@ const HomePage = () => {
                   </p>
                   <div className={styles.btnContainer}>
                      <button className={styles.showBtn}>
+                        <GiVineLeaf className={styles.btnDecorationTop}/>
                         Shop now
+                        <GiVineLeaf className={styles.btnDecorationBottom}/>
                      </button>
                      <a className={styles.exploreLink} href="#"><span
                         className={styles.exploreLinkText}>Explore plants</span>

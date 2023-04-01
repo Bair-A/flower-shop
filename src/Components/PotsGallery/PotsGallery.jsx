@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from "./PotsGallery.module.scss";
 import {pots} from "../mock";
 import Loader from "../UI/Loader";
+import {GiVineLeaf} from "react-icons/gi";
 
 const PotsGallery = () => {
    const [potsArr, setPotsArr] = useState([]);
@@ -18,7 +19,6 @@ const PotsGallery = () => {
             setTimeout(resolve, 1000);
          });
          setPotsArr(pre => [...pre, ...pots.slice(pre.length, pre.length + 8)]);
-         console.log('work')
       } catch (e) {
          alert(e.message)
       } finally {
@@ -66,7 +66,10 @@ const PotsGallery = () => {
          }
          <button
             className={(pots.length <= potsArr.length) ? [styles.loadMoreBtn, styles.disabled].join(' ') : styles.loadMoreBtn}
-            onClick={fetchProducts}>Show more
+            onClick={fetchProducts}>
+            <GiVineLeaf className={styles.btnDecorationTop}/>
+            Shop more
+            <GiVineLeaf className={styles.btnDecorationBottom}/>
          </button>
       </div>
    </div>);

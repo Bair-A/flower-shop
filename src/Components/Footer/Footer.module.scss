@@ -1,0 +1,26 @@
+.footer {
+  background-color: #004F44;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.soсials {
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: 35px;
+}
+
+.soсialsItem {
+  color: #fff;
+  transition: all .2s;
+
+  &:hover {
+    font-size: 38px;
+  }
+}
