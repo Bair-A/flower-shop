@@ -10,6 +10,7 @@
 .container {
   max-width: 1160px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .wrapper {
@@ -24,6 +25,7 @@
 }
 
 .menuItem {
+  position: relative;
   margin: 0 50px 0 0;
   font-size: 16px;
 
@@ -34,9 +36,18 @@
   &:after {
     content: '';
     display: block;
+    position: absolute;
+    bottom: -4px;
     width: 100%;
     height: 2px;
-    color: #fff;
+    transform: scale(0);
+    transform-origin: left;
+    transition: all 0.3s;
+    background-color: #fff;
+  }
+
+  &:hover:after {
+    transform: scale(1);
   }
 
   a {
@@ -45,6 +56,8 @@
 }
 
 .iconsPanel {
+  width: 150px;
+
   a {
     margin: 0 0 0 20px;
     color: white;
@@ -56,6 +69,11 @@
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+  font-size: 20px;
+  transition: all .2s;
+
+  &:hover {
+    font-size: 24px;
+
+  }
 }
