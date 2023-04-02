@@ -37,7 +37,7 @@ const PotsGallery = () => {
             <a className={styles.showFlowerGallery} href="#">view all</a>
          </div>
          <div className={styles.cards}>
-            {potsArr.length ? potsArr.map((item, index) => (<div key={index} className={styles.card}>
+            {potsArr.length ? potsArr.map((item, index) => (<div key={item.id} className={styles.card}>
                <div className={styles.imgWrapper}>
                   <img src={item.img} alt="flower" className={styles.img}/>
                </div>

@@ -53,7 +53,7 @@ const CustomersReviews = () => {
                                  <div className={styles.ratingItem} data-item-value='2'>✿</div>
                                  <div className={styles.ratingItem} data-item-value='1'>✿</div>
                               </div>
-                              <spun className={styles.date}>{item.date}</spun>
+                              <span className={styles.date}>{item.date}</span>
                            </div>
                         </div>
                         <div className={styles.imgWrapper}>
