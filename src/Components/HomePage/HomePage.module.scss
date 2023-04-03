@@ -88,14 +88,32 @@
   margin: 0 10px 0 0;
 }
 
-.gallery {
+.galleryWrapper {
+  position: relative;
   width: 50%;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding: 0 0 90% 0;
+  }
+}
+
+.gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: grid;
-  gap: 5px;
-  grid-template: repeat(2, minmax(100px, 260px)) / repeat(3, minmax(100px, 220px));
+  gap: 1%;
+  grid-template: repeat(2, 49.5%) / repeat(3, 33%);
 }
 
 .galleryItemBig {
   grid-column: span 2;
   grid-row: span 2;
 }
+
+

@@ -26,15 +26,30 @@ const HomePage = () => {
                         <FaLongArrowAltRight/></a>
                   </div>
                </div>
-               <div className={styles.gallery}>
-                  <div>
-                     <HomePageFlowerCard src={process.env.PUBLIC_URL + '/img/home/home_1.jpg'} alt={"flower image"}/>
-                  </div>
-                  <div className={styles.galleryItemBig}>
-                     <HomePageFlowerCard src={process.env.PUBLIC_URL + '/img/home/home_2.jpg'} alt={"flower image"}/>
-                  </div>
-                  <div>
-                     <HomePageFlowerCard src={process.env.PUBLIC_URL + '/img/home/home_3.jpg'} alt={"flower image"}/>
+               <div className={styles.galleryWrapper}>
+                  <div className={styles.gallery}>
+                     <div>
+                        <HomePageFlowerCard className={styles.card}
+                                            src={process.env.PUBLIC_URL + '/img/home/home_1.jpg'}
+                                            alt={"flower image"}
+                                            chapter={"New"}
+                                            title={"Peony"}
+                                            text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, saepe."}/>
+                     </div>
+                     <div className={styles.galleryItemBig}>
+                        <HomePageFlowerCard src={process.env.PUBLIC_URL + '/img/home/home_2.jpg'}
+                                            alt={"flower image"}
+                                            chapter={"Popular"}
+                                            title={"Bryophyta"}
+                                            text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, saepe."}/>
+                     </div>
+                     <div>
+                        <HomePageFlowerCard src={process.env.PUBLIC_URL + '/img/home/home_3.jpg'}
+                                            alt={"flower image"}
+                                            chapter={"Featured"}
+                                            title={"Lycopodiophyta"}
+                                            text={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, saepe."}/>
+                     </div>
                   </div>
                </div>
             </div>
