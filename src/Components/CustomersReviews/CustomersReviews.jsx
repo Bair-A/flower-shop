@@ -3,6 +3,7 @@ import styles from './CustomersReviews.module.scss';
 import {reviews} from '../mock';
 import Loader from "../UI/Loader";
 import Slider from "react-slick";
+import {clear} from "@testing-library/user-event/dist/clear";
 
 const settings = {
    dots: true, // infinite: true,
@@ -15,8 +16,11 @@ const CustomersReviews = () => {
 
    async function fetchReviews() {
       // I use fake fetch because i couldn't find  suitable API
+      // const controller = new AbortController();
       try {
-         // const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1');
+         // const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1', {
+         //    signal: controller.signal
+         // });
          // setReviewsArr(response.data);
          setShowLoader(true);
          await new Promise(resolve => setTimeout(resolve, 1000));
@@ -30,6 +34,7 @@ const CustomersReviews = () => {
 
    useEffect(() => {
       fetchReviews()
+      // return controller.abort()
    }, []);
 
 
