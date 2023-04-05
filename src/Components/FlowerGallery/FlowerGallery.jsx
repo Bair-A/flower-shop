@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import styles from "./FlowerGallery.module.scss";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import {flowers} from "../mock";
-import Loader from "../UI/Loader";
+import styles from './FlowerGallery.module.scss';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import {flowers} from '../mock';
+import Loader from '../UI/Loader';
+import axios from "axios";
+import {normalizeArr} from '../Utils/Utils';
 
 
 const FlowerGallery = () => {
@@ -12,15 +14,17 @@ const FlowerGallery = () => {
    const [showLoader, setShowLoader] = useState(false);
 
    async function fetchFlowers() {
-      // I use fake fetch because i couldn't find  suitable API
+      setShowLoader(true);
       try {
-         // const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1');
-         // setFlowersArr(response.data);
-         setShowLoader(true);
-         await new Promise(resolve => setTimeout(resolve, 1000));
-         setFlowersArr(flowers)
+         const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+            params: {
+               _limit: 10,
+               _page: 1,
+            },
+         });
+         setFlowersArr(normalizeArr(response.data, flowers));
       } catch (e) {
-         alert(e.message);
+         alert('Error in Flower Gallery component:' + e.message);
       } finally {
          setShowLoader(false);
       }
@@ -29,6 +33,7 @@ const FlowerGallery = () => {
    useEffect(() => {
       fetchFlowers()
    }, []);
+
    const settings = {
       dots: true, infinite: false, speed: 500, slidesToShow: 4, slidesToScroll: 4, initialSlide: 0, responsive: [{
          breakpoint: 1024, settings: {
@@ -44,37 +49,41 @@ const FlowerGallery = () => {
          }
       }]
    };
-   return (<div className={styles.container}>
+   return (
+      <div className={styles.container}>
          <div className={styles.headerWrapper}>
             <h2 className={styles.header}>Flower gallery</h2>
             <a className={styles.showFlowerGallery} href="#">view all</a>
          </div>
-         {showLoader && <Loader/>}
-         {flowersArr.length && <Slider {...settings} className={styles.slider}>
-            {flowersArr.map((item, index) => (<div key={index} className={styles.card}>
-                  <div className={styles.imgWrapper}>
-                     <img src={item.img} alt="flower" className={styles.img}/>
-                  </div>
-                  <div>
-                     <div className={styles.cardText}>
-                        <span>{item.name}</span>
-                        <span>{item.price + '$'}</span>
+         {showLoader ?
+            <Loader/>
+            :
+            <Slider {...settings} className={styles.slider}>
+               {flowersArr.map((item) =>
+                  <div key={item.id} className={styles.card}>
+                     <div className={styles.imgWrapper}>
+                        <img src={item.img} alt="flower" className={styles.img}/>
                      </div>
-                     <div className={styles.cardBottom}>
-                        <div className="potColor">
-                           <span>Pot color</span>
-                           <div className={styles.colors}>
-                              <div className={[styles.color, styles.black].join(' ')}></div>
-                              <div className={[styles.color, styles.ocher].join(' ')}></div>
-                              <div className={[styles.color, styles.white].join(' ')}></div>
-                              <div className={[styles.color, styles.brown].join(' ')}></div>
-                           </div>
+                     <div>
+                        <div className={styles.cardText}>
+                           <span>{item.name}</span>
+                           <span>{item.price + '$'}</span>
                         </div>
-                        <button className={styles.btn}>Byu</button>
+                        <div className={styles.cardBottom}>
+                           <div className="potColor">
+                              <span>Pot color</span>
+                              <div className={styles.colors}>
+                                 <div className={[styles.color, styles.black].join(' ')}/>
+                                 <div className={[styles.color, styles.ocher].join(' ')}/>
+                                 <div className={[styles.color, styles.white].join(' ')}/>
+                                 <div className={[styles.color, styles.brown].join(' ')}/>
+                              </div>
+                           </div>
+                           <button className={styles.btn}>Byu</button>
+                        </div>
                      </div>
-                  </div>
-               </div>))}
-         </Slider>}
+                  </div>)}
+            </Slider>}
       </div>);
 };
 

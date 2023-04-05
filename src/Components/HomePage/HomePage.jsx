@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./HomePage.module.scss";
 import {FaLongArrowAltRight} from "react-icons/fa";
-import HomePageFlowerCard from "../HomePageFlowerCard/HomePageFlowerCard";
+import HomePageFlowerCard from "./HomePageFlowerCard/HomePageFlowerCard";
 import {GiVineLeaf} from "react-icons/gi";
 
 const HomePage = () => {

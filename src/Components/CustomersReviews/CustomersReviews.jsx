@@ -7,7 +7,7 @@ import {clear} from "@testing-library/user-event/dist/clear";
 
 const settings = {
    dots: true, // infinite: true,
-   slidesToShow: 1, slidesToScroll: 1, autoplay: true, speed: 2000, autoplaySpeed: 200000000, cssEase: 'linear'
+   slidesToShow: 1, slidesToScroll: 1, autoplay: true, speed: 2000, autoplaySpeed: 2000, cssEase: 'linear'
 };
 
 const CustomersReviews = () => {
@@ -34,7 +34,6 @@ const CustomersReviews = () => {
 
    useEffect(() => {
       fetchReviews()
-      // return controller.abort()
    }, []);
 
 
