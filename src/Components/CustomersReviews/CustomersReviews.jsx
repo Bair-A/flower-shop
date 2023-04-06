@@ -5,6 +5,7 @@ import Loader from "../UI/Loader/Loader";
 import Slider from "react-slick";
 import axios from "axios";
 import {normalizeArr} from "../Utils/Utils";
+import CustomerReviewCard from "./CustomerReviewCard/CustomerReviewCard";
 
 const settings = {
    dots: true,
@@ -44,29 +45,9 @@ const CustomersReviews = () => {
             <h2 className={styles.title}>Reviews</h2>
             {showLoader && <Loader/>}
             {reviewsArr.length && <Slider {...settings}>
-               {reviewsArr.map((item) => (
-                  <div key={item.id}>
-                     <div className={styles.slideContent}>
-                        <div className={styles.textContent}>
-                           <h3 className={styles.slideHeader}>{item.name}</h3>
-                           <p className={styles.slideText}>{item.review}</p>
-                           <div className={styles.ratingWrapper}>
-                              <div className={styles.rating} data-total-value={item.rating}>
-                                 <div className={styles.ratingItem} data-item-value='5'>✿</div>
-                                 <div className={styles.ratingItem} data-item-value='4'>✿</div>
-                                 <div className={styles.ratingItem} data-item-value='3'>✿</div>
-                                 <div className={styles.ratingItem} data-item-value='2'>✿</div>
-                                 <div className={styles.ratingItem} data-item-value='1'>✿</div>
-                              </div>
-                              <span className={styles.date}>{item.date}</span>
-                           </div>
-                        </div>
-                        <div className={styles.imgWrapper}>
-                           <img className={styles.img} src={item.img} alt="review image"/>
-                        </div>
-                     </div>
-                  </div>
-               ))}
+               {reviewsArr.map((item) =>
+                  <CustomerReviewCard item={item}/>
+               )}
             </Slider>}
          </div>
       </div>);
