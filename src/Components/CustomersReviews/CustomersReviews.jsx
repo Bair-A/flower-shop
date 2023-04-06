@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './CustomersReviews.module.scss';
 import {reviews} from '../mock';
-import Loader from "../UI/Loader";
+import Loader from "../UI/Loader/Loader";
 import Slider from "react-slick";
 import {clear} from "@testing-library/user-event/dist/clear";
 

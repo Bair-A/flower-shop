@@ -1,0 +1,59 @@
+.loadMoreBtn {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 40px auto 0;
+  width: 155px;
+  height: 60px;
+
+  &:hover .btnDecorationTop {
+    transform: scale(1.4) rotate(0);
+  }
+
+  &:hover .btnDecorationBottom {
+    transform: scale(1.4) rotate(180deg);
+  }
+}
+
+.green {
+  background-color: #004F44;
+  color: #fff;
+}
+
+.white {
+  background-color: #fff;
+  color: #004F44;
+}
+
+.greenLeaf {
+  color: #004F44;
+}
+
+.whiteLeaf {
+  color: #fff;
+}
+
+.btnDecorationTop {
+  position: absolute;
+  left: 7%;
+  top: 0;
+  transform-origin: right top;
+  transform: rotate(90deg);
+  font-size: 25px;
+  transition: linear .3s;
+}
+
+.btnDecorationBottom {
+  position: absolute;
+  right: -16%;
+  bottom: -40%;
+  transform-origin: left top;
+  font-size: 25px;
+  transform: rotate(90deg);
+  transition: linear .3s;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

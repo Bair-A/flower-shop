@@ -4,26 +4,45 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {flowers} from '../mock';
-import Loader from '../UI/Loader';
+import Loader from '../UI/Loader/Loader';
 import axios from "axios";
 import {normalizeArr} from '../Utils/Utils';
 import FlowerGalleryCard from './FlowerGalleryCard/FlowerGalleryCard';
+import CustomBtn from '../UI/CustomBtn/CustomBtn';
 
 
 const FlowerGallery = () => {
    const [flowersArr, setFlowersArr] = useState([]);
    const [showLoader, setShowLoader] = useState(false);
+   const [total, setTotal] = useState(0);
+   const [disabled, setDisabled] = useState(false);
+
+   if (flowersArr.length >= total && total) setDisabled(true);
 
    async function fetchFlowers() {
       setShowLoader(true);
+      console.log('fafafa');
       try {
-         const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
-            params: {
-               _limit: 10,
-               _page: 1,
-            },
-         });
-         setFlowersArr(normalizeArr(response.data, flowers));
+         if (!flowersArr.length) {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+               params: {
+                  _limit: 10,
+                  _page: 1,
+               },
+            });
+            setFlowersArr(normalizeArr(response.data, flowers));
+            setTotal(response.headers['x-total-count']);
+         } else {
+            const page = Math.ceil(flowersArr.length / 10) + 1;
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+               params: {
+                  _limit: 10,
+                  _page: page,
+               },
+            });
+            console.log('work')
+            setFlowersArr(pre => [...pre, ...normalizeArr(response.data, flowers, pre)]);
+         }
       } catch (e) {
          alert('Error in Flower Gallery component:' + e.message);
       } finally {
@@ -64,6 +83,11 @@ const FlowerGallery = () => {
                   <FlowerGalleryCard key={item.id} item={item}/>
                )}
             </Slider>}
+         <CustomBtn
+            onClick={fetchFlowers}
+            color={'green'}
+            children={'Load more'}
+            disabled={disabled}/>
       </div>);
 };
 

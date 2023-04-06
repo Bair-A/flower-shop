@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './PotsGallery.module.scss';
 import {pots} from '../mock';
-import Loader from '../UI/Loader';
+import Loader from '../UI/Loader/Loader';
 import {GiVineLeaf} from 'react-icons/gi';
 import {normalizeArr} from '../Utils/Utils';
 import axios from 'axios';
@@ -25,9 +25,9 @@ const PotsGallery = () => {
                },
             });
             setPotsArr(normalizeArr(response.data, pots));
-            console.log(response.headers['x-total-count\n'])
+            setTotal(response.headers['x-total-count'])
          } else {
-            const page = potsArr.length / 8 + 1;
+            const page = Math.ceil(potsArr.length / 8) + 1;
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                params: {
                   _limit: 8,
@@ -64,8 +64,7 @@ const PotsGallery = () => {
          </div>
          <button
             className={
-               // (pots.length <= potsArr.length) ? [styles.loadMoreBtn, styles.disabled].join(' ') : styles.loadMoreBtn
-               styles.loadMoreBtn
+               (potsArr.length >= total && total) ? [styles.loadMoreBtn, styles.disabled].join(' ') : styles.loadMoreBtn
             }
             onClick={fetchProducts}>
             <GiVineLeaf className={styles.btnDecorationTop}/>
