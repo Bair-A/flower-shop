@@ -21,7 +21,6 @@ const FlowerGallery = () => {
 
    async function fetchFlowers() {
       setShowLoader(true);
-      console.log('fafafa');
       try {
          if (!flowersArr.length) {
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
@@ -40,7 +39,6 @@ const FlowerGallery = () => {
                   _page: page,
                },
             });
-            console.log('work')
             setFlowersArr(pre => [...pre, ...normalizeArr(response.data, flowers, pre)]);
          }
       } catch (e) {
@@ -70,7 +68,7 @@ const FlowerGallery = () => {
       }]
    };
    return (
-      <div className={styles.container}>
+      <div className={styles.container} id='flower_gallery'>
          <div className={styles.headerWrapper}>
             <h2 className={styles.header}>Flower gallery</h2>
             <a className={styles.showFlowerGallery} href="#">view all</a>
@@ -83,11 +81,13 @@ const FlowerGallery = () => {
                   <FlowerGalleryCard key={item.id} item={item}/>
                )}
             </Slider>}
-         <CustomBtn
-            onClick={fetchFlowers}
-            color={'green'}
-            children={'Load more'}
-            disabled={disabled}/>
+         <div className={styles.loadBtnWrapper}>
+            <CustomBtn
+               onClick={fetchFlowers}
+               color={'green'}
+               children={'Load more'}
+               disabled={disabled}/>
+         </div>
       </div>);
 };
 

@@ -4,7 +4,7 @@ import {FiPhoneCall, FiMail, FiMapPin} from "react-icons/fi";
 
 const ContactsMap = () => {
    return (
-      <div className={styles.contactsMap}>
+      <div className={styles.contactsMap} id='contacts'>
          <div className={styles.container}>
             <div className={styles.wrapper}>
                <div className={styles.contacts}>

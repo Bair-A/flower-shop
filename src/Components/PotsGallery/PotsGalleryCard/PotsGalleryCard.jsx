@@ -10,6 +10,7 @@ const PotsGalleryCard = ({item}) => {
          <div>
             <div className={styles.cardText}>
                <span>{item.name}</span>
+               <span>{item.id}</span>
                <span>{item.price + '$'}</span>
             </div>
             <div className={styles.cardBottom}>

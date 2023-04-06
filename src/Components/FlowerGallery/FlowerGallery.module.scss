@@ -24,7 +24,7 @@
 }
 
 .slider {
-  color:  #004F44;
+  color: #004F44;
 }
 
 :global {
@@ -39,10 +39,15 @@
   .slick-prev:before, .slick-next:before {
     color: #004F44 !important;
   }
+
   .slick-next {
     right: 15px;
   }
 }
 
-
+.loadBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0;
+}
 

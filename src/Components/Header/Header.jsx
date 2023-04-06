@@ -2,6 +2,7 @@ import React from 'react';
 import {FiShoppingCart, FiUser, FiSearch} from "react-icons/fi";
 import styles from './Header.module.scss';
 
+
 const Header = () => {
    return (
       <div className={styles.header}>
@@ -9,16 +10,16 @@ const Header = () => {
             <div className={styles.wrapper}>
                <ul className={styles.menu}>
                   <li className={styles.menuItem}>
-                     <a href="#">Shop</a>
+                     <a href="#flower_gallery">Flower gallery</a>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#">Products</a>
+                     <a href="#pots_gallery">Flower pots</a>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#">Fertilizer</a>
+                     <a href="#reviews">Reviews</a>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#">Guide</a>
+                     <a href="#contacts">Our contacts</a>
                   </li>
                </ul>
                <img src={process.env.PUBLIC_URL + '/img/Logo.svg'} alt=""/>

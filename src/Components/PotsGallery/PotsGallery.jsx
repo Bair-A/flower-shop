@@ -2,16 +2,19 @@ import React, {useEffect, useState} from 'react';
 import styles from './PotsGallery.module.scss';
 import {pots} from '../mock';
 import Loader from '../UI/Loader/Loader';
-import {GiVineLeaf} from 'react-icons/gi';
 import {normalizeArr} from '../Utils/Utils';
 import axios from 'axios';
 import PotsGalleryCard from './PotsGalleryCard/PotsGalleryCard';
+import CustomBtn from '../UI/CustomBtn/CustomBtn';
 
 
 const PotsGallery = () => {
    const [total, setTotal] = useState(0);
    const [potsArr, setPotsArr] = useState([]);
    const [showLoader, setShowLoader] = useState(false);
+   const [disabled, setDisabled] = useState(false);
+
+   if (potsArr.length >= total && total) setDisabled(true);
 
    async function fetchProducts() {
 
@@ -48,31 +51,29 @@ const PotsGallery = () => {
       fetchProducts()
    }, []);
 
-   return (<div className={styles.wrapper}>
-      <div className='container'>
-         <div className={styles.headerWrapper}>
-            <h2 className={styles.header}>Plant stands</h2>
-            <a className={styles.showFlowerGallery} href="#">view all</a>
+   return (
+      <div className={styles.wrapper} id='pots_gallery'>
+         <div className='container'>
+            <div className={styles.headerWrapper}>
+               <h2 className={styles.header}>Plant stands</h2>
+               <a className={styles.showFlowerGallery} href="#">view all</a>
+            </div>
+            <div className={styles.cards}>
+               {showLoader ?
+                  <Loader/>
+                  :
+                  potsArr.map((item) =>
+                     <PotsGalleryCard key={item.id} item={item}/>
+                  )}
+            </div>
+            <div className={styles.loadBtnWrapper}>
+               <CustomBtn children={'Load more'}
+                          onClick={fetchProducts}
+                          color={'green'}
+                          disabled={disabled}/>
+            </div>
          </div>
-         <div className={styles.cards}>
-            {showLoader ?
-               <Loader/>
-               :
-               potsArr.map((item) =>
-                  <PotsGalleryCard key={item.id} item={item}/>
-               )}
-         </div>
-         <button
-            className={
-               (potsArr.length >= total && total) ? [styles.loadMoreBtn, styles.disabled].join(' ') : styles.loadMoreBtn
-            }
-            onClick={fetchProducts}>
-            <GiVineLeaf className={styles.btnDecorationTop}/>
-            Load more
-            <GiVineLeaf className={styles.btnDecorationBottom}/>
-         </button>
-      </div>
-   </div>);
+      </div>);
 };
 
 export default PotsGallery;

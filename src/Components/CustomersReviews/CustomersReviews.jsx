@@ -3,10 +3,12 @@ import styles from './CustomersReviews.module.scss';
 import {reviews} from '../mock';
 import Loader from "../UI/Loader/Loader";
 import Slider from "react-slick";
-import {clear} from "@testing-library/user-event/dist/clear";
+import axios from "axios";
+import {normalizeArr} from "../Utils/Utils";
 
 const settings = {
-   dots: true, // infinite: true,
+   dots: true,
+   infinite: true,
    slidesToShow: 1, slidesToScroll: 1, autoplay: true, speed: 2000, autoplaySpeed: 2000, cssEase: 'linear'
 };
 
@@ -15,18 +17,17 @@ const CustomersReviews = () => {
    const [reviewsArr, setReviewsArr] = useState([]);
 
    async function fetchReviews() {
-      // I use fake fetch because i couldn't find  suitable API
-      // const controller = new AbortController();
+      setShowLoader(true);
       try {
-         // const response = await axios.get('https://jsonplaceholder.typicode.com/photos?_limit=10&_page=1', {
-         //    signal: controller.signal
-         // });
-         // setReviewsArr(response.data);
-         setShowLoader(true);
-         await new Promise(resolve => setTimeout(resolve, 1000));
-         setReviewsArr(reviews)
+         const response = await axios.get('https://jsonplaceholder.typicode.com/users', {
+            params: {
+               _limit: 10,
+               _page: 1,
+            },
+         });
+         setReviewsArr(normalizeArr(response.data, reviews));
       } catch (e) {
-         alert(e.message);
+         alert('Error in customers reviews component:' + e.message);
       } finally {
          setShowLoader(false);
       }
@@ -38,7 +39,7 @@ const CustomersReviews = () => {
 
 
    return (
-      <div className={styles.reviews}>
+      <div className={styles.reviews} id='reviews'>
          <div className={styles.container}>
             <h2 className={styles.title}>Reviews</h2>
             {showLoader && <Loader/>}
