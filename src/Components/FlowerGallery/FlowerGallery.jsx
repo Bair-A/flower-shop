@@ -68,27 +68,30 @@ const FlowerGallery = () => {
       }]
    };
    return (
-      <div className={styles.container} id='flower_gallery'>
-         <div className={styles.headerWrapper}>
-            <h2 className={styles.header}>Flower gallery</h2>
-            <a className={styles.showFlowerGallery} href="#">view all</a>
+      <div className={styles.wrapper} id='flower_gallery'>
+         <div className={styles.container}>
+            <div className={styles.headerWrapper}>
+               <h2 className={styles.header}>Flower gallery</h2>
+               <a className={styles.showFlowerGallery} href="#">view all</a>
+            </div>
+            {showLoader ?
+               <Loader/>
+               :
+               <Slider {...settings} className={styles.slider}>
+                  {flowersArr.map((item) =>
+                     <FlowerGalleryCard key={item.id} item={item}/>
+                  )}
+               </Slider>}
+            <div className={styles.loadBtnWrapper}>
+               <CustomBtn
+                  onClick={fetchFlowers}
+                  color={'green'}
+                  children={'Load more'}
+                  disabled={disabled}/>
+            </div>
          </div>
-         {showLoader ?
-            <Loader/>
-            :
-            <Slider {...settings} className={styles.slider}>
-               {flowersArr.map((item) =>
-                  <FlowerGalleryCard key={item.id} item={item}/>
-               )}
-            </Slider>}
-         <div className={styles.loadBtnWrapper}>
-            <CustomBtn
-               onClick={fetchFlowers}
-               color={'green'}
-               children={'Load more'}
-               disabled={disabled}/>
-         </div>
-      </div>);
+      </div>
+   );
 };
 
 export default FlowerGallery;

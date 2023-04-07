@@ -55,7 +55,7 @@ const PotsGallery = () => {
       <div className={styles.wrapper} id='pots_gallery'>
          <div className='container'>
             <div className={styles.headerWrapper}>
-               <h2 className={styles.header}>Plant stands</h2>
+               <h2 className={styles.header}>Flower pots</h2>
                <a className={styles.showFlowerGallery} href="#">view all</a>
             </div>
             <div className={styles.cards}>

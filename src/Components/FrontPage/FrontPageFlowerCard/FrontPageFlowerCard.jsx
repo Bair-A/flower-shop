@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "./HomePageFlowerCard.module.scss";
+import styles from "./FrontPageFlowerCard.module.scss";
 
 
-const HomePageFlowerCard = ({src, alt, chapter, title, text}) => {
+const FrontPageFlowerCard = ({src, alt, chapter, title, text}) => {
    return (
       <div className={styles.card}>
          <div className={styles.chapter}>{chapter}</div>
@@ -17,4 +17,4 @@ const HomePageFlowerCard = ({src, alt, chapter, title, text}) => {
    );
 };
 
-export default HomePageFlowerCard;
+export default FrontPageFlowerCard;
