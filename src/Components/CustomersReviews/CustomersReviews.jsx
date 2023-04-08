@@ -51,7 +51,7 @@ const CustomersReviews = () => {
             {showLoader && <Loader/>}
             {reviewsArr.length && <Slider {...settings}>
                {reviewsArr.map((item) =>
-                  <CustomerReviewCard item={item}/>
+                  <CustomerReviewCard key={item.id} item={item}/>
                )}
             </Slider>}
          </div>

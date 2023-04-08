@@ -25,15 +25,35 @@
 }
 
 .menuItem {
-  position: relative;
   margin: 0 50px 0 0;
+}
+
+.menuLink {
+  &:global(.active) {
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      transform: scale(1);
+      transform-origin: left;
+      transition: all 0.3s;
+      background-color: #fff;
+    }
+  }
+
+  position: relative;
   font-size: 16px;
+  color: #fff;
+  display: block;
 
   &:last-child {
     margin: 0;
   }
 
-  &:after {
+  &::after {
     content: '';
     display: block;
     position: absolute;
@@ -74,12 +94,5 @@
 
   &:hover {
     font-size: 24px;
-
   }
 }
-
-//.linkWrapper {
-//  display: flex;
-//  justify-content: center;
-//  gap: 30px;
-//}

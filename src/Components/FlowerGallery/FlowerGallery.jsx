@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import styles from './FlowerGallery.module.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -49,13 +49,13 @@ const FlowerGallery = () => {
    }
 
    useEffect(() => {
-      fetchFlowers()
+      fetchFlowers();
    }, []);
 
    const settings = {
       dots: true, infinite: false, speed: 500, slidesToShow: 4, slidesToScroll: 4, initialSlide: 0, responsive: [{
-         breakpoint: 1024, settings: {
-            slidesToShow: 3, slidesToScroll: 3, infinite: true, dots: true
+         breakpoint: 1199, settings: {
+            slidesToShow: 4, slidesToScroll: 3, infinite: true, dots: true
          }
       }, {
          breakpoint: 600, settings: {
@@ -74,14 +74,16 @@ const FlowerGallery = () => {
                <h2 className={styles.header}>Flower gallery</h2>
                <a className={styles.showFlowerGallery} href="#">view all</a>
             </div>
-            {showLoader ?
-               <Loader/>
-               :
-               <Slider {...settings} className={styles.slider}>
-                  {flowersArr.map((item) =>
-                     <FlowerGalleryCard key={item.id} item={item}/>
-                  )}
-               </Slider>}
+            <div className={styles.sliderWrapper}>
+               {showLoader ?
+                  <Loader/>
+                  :
+                  <Slider {...settings} className={styles.slider}>
+                     {flowersArr.map((item) =>
+                        <FlowerGalleryCard key={item.id} item={item}/>
+                     )}
+                  </Slider>}
+            </div>
             <div className={styles.loadBtnWrapper}>
                <CustomBtn
                   onClick={fetchFlowers}

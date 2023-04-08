@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 50px 0 0 0;
+  padding: 120px 0 60px;
 }
 
 .container {
@@ -8,52 +8,40 @@
   padding: 0 20px;
 }
 
+.inner {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 .headerWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 50px 0;
+  margin: 0 0 60px 0;
+  color: #004F44;
 }
+
+.cards {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(480px, 1fr));
+}
+
 
 .header {
   font-weight: 400;
   font-size: 40px;
   line-height: 48px;
-  color: #004F44;
 }
 
 .showFlowerGallery {
   font-size: 24px;
   line-height: 29px;
-  color: #004F44;
-}
-
-.sliderWrapper {
-  padding: 0 15px;
-}
-
-.slider {
-  color: #004F44;
-  background-color: red;
-}
-
-:global {
-  .slick-slide > div {
-    margin: 0 10px;
-  }
-
-  .slick-list {
-    margin: 0 -10px;
-  }
-
-  .slick-prev:before, .slick-next:before {
-    color: #004F44 !important;
-  }
 }
 
 .loadBtnWrapper {
+  margin: 40px 0 0;
   display: flex;
   justify-content: center;
-  margin: 40px 0 0;
 }
-

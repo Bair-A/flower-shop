@@ -1,3 +1,20 @@
+.cardWrapper {
+  width: 25%;
+}
+
+@media (max-width: 600px) {
+  .cardWrapper {
+    width: 50%;
+  }
+}
+
+.card {
+  width: 240px;
+  height: 480px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
 .imgWrapper {
   width: 100%;
   height: 360px;
@@ -7,11 +24,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.card {
-  width: 280px;
-  height: 480px;
 }
 
 .cardText {
@@ -37,6 +49,7 @@
   border-radius: 50%;
   border: 1px solid #004F44;
   margin: 0 5px 0 0;
+
   &:last-child {
     margin: 0;
   }
@@ -45,12 +58,15 @@
 .black {
   background-color: #000;
 }
+
 .ocher {
   background-color: #F3A195;
 }
+
 .white {
   background-color: #EFEAE6;
 }
+
 .brown {
   background-color: #C38364;
 }

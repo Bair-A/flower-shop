@@ -16,7 +16,7 @@ const CustomerReviewCard = ({item}) => {
                      <div className={styles.ratingItem} data-item-value='2'>✿</div>
                      <div className={styles.ratingItem} data-item-value='1'>✿</div>
                   </div>
-                  <span className={styles.date}>{item.date}</span>
+                  <span>{item.date}</span>
                </div>
             </div>
             <div className={styles.imgWrapper}>

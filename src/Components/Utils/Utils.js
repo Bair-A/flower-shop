@@ -10,3 +10,7 @@ export function normalizeArr(comingArr, helpArr, prevArr = []) {
    }
    return resultArr
 }
+
+export function getPageCount() {
+   
+}

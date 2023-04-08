@@ -1,23 +1,20 @@
 import './App.scss';
-import FrontPage from './Components/FrontPage/FrontPage';
-import FlowerGallery from './Components/FlowerGallery/FlowerGallery';
-import PotsGallery from './Components/PotsGallery/PotsGallery';
-import Header from './Components/Header/Header';
-import CustomersReviews from './Components/CustomersReviews/CustomersReviews';
-import ContactsMap from './Components/ContactsMap/ContactsMap';
-import Footer from './Components/Footer/Footer';
-
+import {Routes, Route} from 'react-router-dom';
+import Layout from './Components/Layout/Layout';
+import HomePage from './Components/Pages/HomePage/HomePage';
+import FlowersPage from './Components/Pages/FlowersPage/FlowersPage';
+import PotsPage from './Components/Pages/PotsPage/PotsPage';
 
 function App() {
    return (
       <div className="App">
-         <Header/>
-         <FrontPage/>
-         <FlowerGallery/>
-         <PotsGallery/>
-         <CustomersReviews/>
-         <ContactsMap/>
-         <Footer/>
+         <Routes>
+            <Route path='/' element={<Layout/>}>
+               <Route index element={<HomePage/>}/>
+               <Route path='/FlowersPage' element={<FlowersPage/>}/>
+               <Route path='/PotsPage' element={<PotsPage/>}/>
+            </Route>
+         </Routes>
       </div>
    );
 }
