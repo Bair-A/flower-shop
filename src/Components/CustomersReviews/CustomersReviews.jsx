@@ -48,12 +48,16 @@ const CustomersReviews = () => {
       <div className={styles.reviews} id='reviews'>
          <div className={styles.container}>
             <h2 className={styles.title}>Reviews</h2>
-            {showLoader && <Loader/>}
-            {reviewsArr.length && <Slider {...settings}>
-               {reviewsArr.map((item) =>
-                  <CustomerReviewCard key={item.id} item={item}/>
-               )}
-            </Slider>}
+            <div className={styles.sliderWrapper}>
+               {showLoader ?
+                  <Loader/>
+                  :
+                  <Slider {...settings}>
+                     {reviewsArr.map((item) =>
+                        <CustomerReviewCard key={item.id} item={item}/>
+                     )}
+                  </Slider>}
+            </div>
          </div>
       </div>);
 };

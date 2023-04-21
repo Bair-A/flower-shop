@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './FlowerGallery.module.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -55,17 +55,23 @@ const FlowerGallery = () => {
    const settings = {
       dots: true, infinite: false, speed: 500, slidesToShow: 4, slidesToScroll: 4, initialSlide: 0, responsive: [{
          breakpoint: 1199, settings: {
-            slidesToShow: 4, slidesToScroll: 3, infinite: true, dots: true
+            slidesToShow: 4, slidesToScroll: 3, infinite: false, dots: true
          }
-      }, {
-         breakpoint: 600, settings: {
-            slidesToShow: 2, slidesToScroll: 2, initialSlide: 2
-         }
-      }, {
-         breakpoint: 480, settings: {
-            slidesToShow: 1, slidesToScroll: 1
-         }
-      }]
+      },
+         {
+            breakpoint: 768, settings: {
+               slidesToShow: 3, slidesToScroll: 2, initialSlide: 2
+            }
+         },
+         {
+            breakpoint: 600, settings: {
+               slidesToShow: 2, slidesToScroll: 2, initialSlide: 2
+            }
+         }, {
+            breakpoint: 480, settings: {
+               slidesToShow: 1, slidesToScroll: 1
+            }
+         }]
    };
    return (
       <div className={styles.wrapper} id='flower_gallery'>

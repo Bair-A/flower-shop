@@ -1,6 +1,7 @@
 .card {
   width: 280px;
   height: 480px;
+  font-size: 1.2em;
 }
 
 .imgWrapper {
@@ -19,9 +20,8 @@
   justify-content: space-between;
   margin: 20px 0 0 0;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.3px;
+  line-height: 2rem;
+  letter-spacing: 0.03rem;
   color: #004F44;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .btn {
-  width: 80px;
-  height: 35px;
+  font-size: 1em;
+  padding: 0.2em 1em;
   background-color: #fff;
   border: 1px solid #004F44;
 }

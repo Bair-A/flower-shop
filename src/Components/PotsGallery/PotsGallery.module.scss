@@ -1,5 +1,12 @@
 .wrapper {
   padding: 100px 0 60px;
+  font-size: 1.2em;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .headerWrapper {
@@ -25,8 +32,9 @@
 }
 
 .showFlowerGallery {
-  font-size: 24px;
+  font-size: 1.5em;
   line-height: 29px;
+  color: #004F44;
 }
 
 .loadBtnWrapper {

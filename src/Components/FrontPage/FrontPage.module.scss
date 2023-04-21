@@ -13,23 +13,32 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 64px;
+  }
 }
 
 .textContainer {
   max-width: 420px;
   width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 564px;
+  }
 }
 
 .title {
   font-family: 'Chillax-Medium';
   font-weight: 500;
   font-size: 64px;
-  margin: 0 0 30px 0;
+  margin: 0 0 1em 0;
 }
 
 .mainText {
-  font-size: 16px;
-  margin: 0 0 30px 0;
+  font-size: 1.2em;
+  margin: 0 0 1em 0;
 }
 
 .btnContainer {
@@ -41,15 +50,32 @@
 .exploreLink {
   display: flex;
   color: #EFF7F5;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .exploreLinkText {
   margin: 0 10px 0 0;
 }
 
+.arrow {
+  @media (max-width: 768px) {
+    transform: rotate(90deg);
+  }
+}
+
 .galleryWrapper {
   position: relative;
   width: 50%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 
   &:before {
     content: "";
@@ -74,5 +100,7 @@
   grid-column: span 2;
   grid-row: span 2;
 }
+
+
 
 

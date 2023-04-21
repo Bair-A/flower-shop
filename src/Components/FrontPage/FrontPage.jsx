@@ -21,7 +21,7 @@ const FrontPage = () => {
                                 color={'white'}/>
                      <a className={styles.exploreLink} href="#"><span
                         className={styles.exploreLinkText}>Explore plants</span>
-                        <FaLongArrowAltRight/></a>
+                        <FaLongArrowAltRight className={styles.arrow}/></a>
                   </div>
                </div>
                <div className={styles.galleryWrapper}>

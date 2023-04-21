@@ -53,7 +53,7 @@ const PotsGallery = () => {
 
    return (
       <div className={styles.wrapper} id='pots_gallery'>
-         <div className='container'>
+         <div className={styles.container}>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower pots</h2>
                <a className={styles.showFlowerGallery} href="#">view all</a>
