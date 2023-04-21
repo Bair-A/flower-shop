@@ -33,6 +33,11 @@ html {
     font-size: 24px;
   }
 }
+@media (max-width: 540px) {
+  .App {
+    font-size: 30px;
+  }
+}
 /* reset styles */
 * {
   padding: 0;

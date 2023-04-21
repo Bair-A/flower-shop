@@ -12,11 +12,21 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 64px;
+  }
 }
 
 .contacts {
   padding: 20px;
   color: #004F44;
+  font-size: 1.2em;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .title {
@@ -49,19 +59,10 @@
 .iframe {
   height: 450px;
   width: 50%;
-}
 
-@media (max-width: 640px) {
-  .wrapper {
-    flex-direction: column;
-    gap: 64px;
-  }
-
-  .contacts {
-    width: 100%;
-  }
-
-  .iframe {
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
+
+

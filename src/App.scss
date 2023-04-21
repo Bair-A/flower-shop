@@ -41,6 +41,12 @@ html {
   }
 }
 
+@media(max-width: 540px) {
+  .App {
+    font-size: 30px;
+  }
+}
+
 
 /* reset styles */
 
