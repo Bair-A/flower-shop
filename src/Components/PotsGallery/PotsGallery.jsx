@@ -6,6 +6,7 @@ import {normalizeArr} from '../Utils/Utils';
 import axios from 'axios';
 import PotsGalleryCard from './PotsGalleryCard/PotsGalleryCard';
 import CustomBtn from '../UI/CustomBtn/CustomBtn';
+import {NavLink} from 'react-router-dom';
 
 
 const PotsGallery = () => {
@@ -56,7 +57,8 @@ const PotsGallery = () => {
          <div className={styles.container}>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower pots</h2>
-               <a className={styles.showFlowerGallery} href="#">view all</a>
+               {/*<a className={styles.showFlowerGallery} href="#">view all</a>*/}
+               <NavLink to="/PotsPage" className={styles.showFlowerGallery}>view all</NavLink>
             </div>
             <div className={styles.cards}>
                {showLoader ?

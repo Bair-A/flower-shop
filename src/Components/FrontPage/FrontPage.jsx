@@ -6,7 +6,7 @@ import CustomBtn from '../UI/CustomBtn/CustomBtn';
 
 const FrontPage = () => {
    return (
-      <div className={styles.homePage}>
+      <div className={styles.homePage} id="home">
          <div className={styles.container}>
             <div className={styles.contentWrapper}>
                <div className={styles.textContainer}>

@@ -9,10 +9,12 @@
 
 .imgWrapper {
   width: 100%;
-  height: 360px;
+  position: relative;
+  padding: 0 0 133% 0;
 }
 
 .img {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;

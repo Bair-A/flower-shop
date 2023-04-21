@@ -9,6 +9,7 @@ import axios from "axios";
 import {normalizeArr} from '../Utils/Utils';
 import FlowerGalleryCard from './FlowerGalleryCard/FlowerGalleryCard';
 import CustomBtn from '../UI/CustomBtn/CustomBtn';
+import {NavLink} from 'react-router-dom';
 
 
 const FlowerGallery = () => {
@@ -78,7 +79,8 @@ const FlowerGallery = () => {
          <div className={styles.container}>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower gallery</h2>
-               <a className={styles.showFlowerGallery} href="#">view all</a>
+               {/*<a className={styles.showFlowerGallery} href="#">view all</a>*/}
+               <NavLink to="/FlowersPage" className={styles.showFlowerGallery}>view all</NavLink>
             </div>
             <div className={styles.sliderWrapper}>
                {showLoader ?

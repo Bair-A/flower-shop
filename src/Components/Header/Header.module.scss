@@ -27,6 +27,10 @@
 
 .menu {
   display: flex;
+
+  @media(max-width: 540px) {
+    display: none;
+  }
 }
 
 .menuItem {
@@ -77,6 +81,93 @@
   a {
     color: white;
   }
+}
+
+.burger {
+  padding: 15px 0;
+  z-index: 2;
+
+  span {
+    display: block;
+    position: relative;
+    width: 55px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s linear;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      top: 15px;
+      transition: all 0.3s linear;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      bottom: 15px;
+      transition: all 0.3s linear;
+    }
+  }
+}
+
+.active {
+  span {
+    background-color: rgba(0, 0, 0, 0);
+
+    &:before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      opacity: 1;
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.burgerList {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 120px 20px 20px 20px;
+  background-color: #004F44;
+  z-index: 1;
+  transform: scale(0, 1);
+  opacity: 0;
+  transform-origin: left;
+  transition: all 0.3s linear;
+}
+
+.burgerListActive {
+  transform: scale(1, 1);
+  transform-origin: left;
+  opacity: 1;
+}
+
+.burgerListItem {
+  font-size: 1.2em;
+  margin: 0 0 20px 0;
+}
+
+.blackout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #fff;
 }
 
 .iconsPanel {
