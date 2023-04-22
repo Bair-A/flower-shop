@@ -75,7 +75,7 @@ const Header = () => {
                      </li>
                   </ul>
                </div>
-               <div className={blackout}/>
+               <div className={blackout} onClick={burgerHandler}/>
                <img src={process.env.PUBLIC_URL + '/img/Logo.svg'} alt=""/>
                <div className={styles.iconsPanel}>
                   <NavLink to="#"><FiSearch className={styles.icon}/></NavLink>

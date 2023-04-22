@@ -85,7 +85,7 @@
 
 .burger {
   padding: 15px 0;
-  z-index: 2;
+  z-index: 4;
 
   span {
     display: block;
@@ -140,11 +140,11 @@
 
 .burgerList {
   position: fixed;
-  left: 0;
+  left: -100px;
   top: 0;
-  padding: 120px 20px 20px 20px;
+  padding: 140px 100px 70px;
   background-color: #004F44;
-  z-index: 1;
+  z-index: 3;
   transform: scale(0, 1);
   opacity: 0;
   transform-origin: left;
@@ -155,19 +155,32 @@
   transform: scale(1, 1);
   transform-origin: left;
   opacity: 1;
+  left: 0;
 }
 
 .burgerListItem {
-  font-size: 1.2em;
-  margin: 0 0 20px 0;
+  font-size: 1.7em;
+  margin: 0 0 40px 0;
 }
 
 .blackout {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  background-color: #fff;
+  right: 0;
+  z-index: -1;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  height: 300vh;
+  pointer-events: none;
+  transition: all 0.3s linear;
+}
+
+.blackoutActive {
+  z-index: 2;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .iconsPanel {
