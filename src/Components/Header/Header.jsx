@@ -6,6 +6,49 @@ import classNames from 'classnames';
 
 const Header = () => {
    const [burgerOpen, setBurgerOpen] = useState(false);
+   const [menuActive, setMenuActive] = useState({
+      home: false,
+      flowers: false,
+      pots: false,
+      reviews: false,
+      contacts: false,
+   });
+
+   const home = classNames(
+      [styles.menuLink],
+      {
+         [styles.menuLinkActive]: menuActive.home,
+      }
+   )
+
+   const flowers = classNames(
+      [styles.menuLink],
+      {
+         [styles.menuLinkActive]: menuActive.flowers,
+      }
+   )
+
+   const pots = classNames(
+      [styles.menuLink],
+      {
+         [styles.menuLinkActive]: menuActive.pots,
+      }
+   )
+
+   const reviews = classNames(
+      [styles.menuLink],
+      {
+         [styles.menuLinkActive]: menuActive.reviews,
+      }
+   )
+
+   const contacts = classNames(
+      [styles.menuLink],
+      {
+         [styles.menuLinkActive]: menuActive.contacts,
+      }
+   )
+
 
    const burgerHandler = () => {
       setBurgerOpen(cur => !cur);
@@ -35,22 +78,26 @@ const Header = () => {
             <div className={styles.wrapper}>
                <ul className={styles.menu}>
                   <li className={styles.menuItem}>
-                     <a href="#home" className={styles.menuLink}>Home</a>
+                     <a href="#home" className={home} onClick={(prev) => setMenuActive({...prev, home: true})}>Home</a>
                      {/*<NavLink to="/"*/}
                      {/*         className={styles.menuLink}>Home*/}
                      {/*   page</NavLink>*/}
                   </li>
-                  <li className={styles.burgerMenuItem}>
-                     <a href="#flower_gallery" className={styles.menuLink}>Flowers</a>
+                  <li className={styles.menuItem}>
+                     <a href="#flower_gallery" className={flowers}
+                        onClick={(prev) => setMenuActive({...prev, flowers: true})}>Flowers</a>
                   </li>
-                  <li className={styles.burgerMenuItem}>
-                     <a href="#pots_gallery" className={styles.menuLink}>Pots</a>
+                  <li className={styles.menuItem}>
+                     <a href="#pots_gallery" className={pots}
+                        onClick={(prev) => setMenuActive({...prev, pots: true})}>Pots</a>
                   </li>
-                  <li className={styles.burgerMenuItem}>
-                     <a href="#reviews" className={styles.menuLink}>Reviews</a>
+                  <li className={styles.menuItem}>
+                     <a href="#reviews" className={reviews}
+                        onClick={(prev) => setMenuActive({...prev, reviews: true})}>Reviews</a>
                   </li>
-                  <li className={styles.burgerMenuItem}>
-                     <a href="#contacts" className={styles.menuLink}>Contacts</a>
+                  <li className={styles.menuItem}>
+                     <a href="#contacts" className={contacts}
+                        onClick={(prev) => setMenuActive({...prev, contacts: true})}>Contacts</a>
                   </li>
                </ul>
                <div className={burger} onClick={burgerHandler}>
