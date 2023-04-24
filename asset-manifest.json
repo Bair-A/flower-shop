@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/flower-shop/static/css/main.977626ab.css",
-    "main.js": "/flower-shop/static/js/main.8932bb84.js",
-    "static/js/787.2c25d148.chunk.js": "/flower-shop/static/js/787.2c25d148.chunk.js",
-    "static/media/Chillax-Medium.ttf": "/flower-shop/static/media/Chillax-Medium.bd1fdefdb415380f3f52.ttf",
-    "static/media/Chillax-Regular.ttf": "/flower-shop/static/media/Chillax-Regular.50d2215815ebd5becebc.ttf",
-    "static/media/Chillax-Medium.woff": "/flower-shop/static/media/Chillax-Medium.529ac682ffbed5b0db05.woff",
-    "static/media/Chillax-Regular.woff": "/flower-shop/static/media/Chillax-Regular.69ecbaec7d22215aa562.woff",
-    "static/media/Chillax-Medium.woff2": "/flower-shop/static/media/Chillax-Medium.0676d0c351cc36f9d624.woff2",
-    "static/media/Chillax-Regular.woff2": "/flower-shop/static/media/Chillax-Regular.ba523d3ce8c8545f9d20.woff2",
-    "static/media/slick.svg": "/flower-shop/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/flower-shop/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/flower-shop/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/flower-shop/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/flower-shop/index.html",
-    "main.977626ab.css.map": "/flower-shop/static/css/main.977626ab.css.map",
-    "main.8932bb84.js.map": "/flower-shop/static/js/main.8932bb84.js.map",
-    "787.2c25d148.chunk.js.map": "/flower-shop/static/js/787.2c25d148.chunk.js.map"
+    "main.css": "/static/css/main.a9c150c6.css",
+    "main.js": "/static/js/main.779d4680.js",
+    "static/js/787.2c25d148.chunk.js": "/static/js/787.2c25d148.chunk.js",
+    "static/media/Chillax-Medium.ttf": "/static/media/Chillax-Medium.bd1fdefdb415380f3f52.ttf",
+    "static/media/Chillax-Regular.ttf": "/static/media/Chillax-Regular.50d2215815ebd5becebc.ttf",
+    "static/media/Chillax-Medium.woff": "/static/media/Chillax-Medium.529ac682ffbed5b0db05.woff",
+    "static/media/Chillax-Regular.woff": "/static/media/Chillax-Regular.69ecbaec7d22215aa562.woff",
+    "static/media/Chillax-Medium.woff2": "/static/media/Chillax-Medium.0676d0c351cc36f9d624.woff2",
+    "static/media/Chillax-Regular.woff2": "/static/media/Chillax-Regular.ba523d3ce8c8545f9d20.woff2",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.a9c150c6.css.map": "/static/css/main.a9c150c6.css.map",
+    "main.779d4680.js.map": "/static/js/main.779d4680.js.map",
+    "787.2c25d148.chunk.js.map": "/static/js/787.2c25d148.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.977626ab.css",
-    "static/js/main.8932bb84.js"
+    "static/css/main.a9c150c6.css",
+    "static/js/main.779d4680.js"
   ]
 }
