@@ -1,20 +1,55 @@
 .wrapper {
-  font-size: 20px;
+  padding: 86px 0 25px 0;
+  flex-grow: 1;
 }
 
-.header {
-  background-color: red;
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .btn {
-  position: fixed;
-  top: 0;
-  left: 0;
+  display: inline-flex;
+  position: sticky;
+  top: 86px;
+  align-items: center;
+  left: auto;
   z-index: 10;
-  //background-color: #004F44;
-  background-color: red;
+  background-color: #004F44;
   color: white;
-  width: 20px;
-  height: 30px;
+  padding: 10px 20px;
 }
 
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 60px 0;
+  color: #004F44;
+}
+
+.header {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.showFlowerGallery {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.cardsWrapper {
+  justify-content: center;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
+  grid-template-rows: repeat(auto-fit, auto);
+}
+
+.loadBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0;
+}

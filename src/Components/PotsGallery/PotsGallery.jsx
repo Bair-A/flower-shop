@@ -15,8 +15,6 @@ const PotsGallery = () => {
    const [showLoader, setShowLoader] = useState(false);
    const [disabled, setDisabled] = useState(false);
 
-   if (potsArr.length >= total && total) setDisabled(true);
-
    async function fetchProducts() {
 
       try {
@@ -24,21 +22,23 @@ const PotsGallery = () => {
          if (!potsArr.length) {
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                params: {
-                  _limit: 8,
+                  _limit: 9,
                   _page: 1,
                },
             });
             setPotsArr(normalizeArr(response.data, pots));
             setTotal(response.headers['x-total-count'])
          } else {
-            const page = Math.ceil(potsArr.length / 8) + 1;
+            const page = Math.ceil(potsArr.length / 9) + 1;
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                params: {
-                  _limit: 8,
+                  _limit: 9,
                   _page: page,
                },
             });
             setPotsArr(pre => [...pre, ...normalizeArr(response.data, pots, pre)]);
+
+            if (potsArr.length >= total && total) setDisabled(true);
          }
 
       } catch (e) {
@@ -57,7 +57,6 @@ const PotsGallery = () => {
          <div className={styles.container}>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower pots</h2>
-               {/*<a className={styles.showFlowerGallery} href="#">view all</a>*/}
                <NavLink to="/PotsPage" className={styles.showFlowerGallery}>view all</NavLink>
             </div>
             <div className={styles.cards}>

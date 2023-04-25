@@ -3,7 +3,7 @@ import styles from './PotsGalleryCard.module.scss';
 
 const PotsGalleryCard = ({item}) => {
    return (
-      <div>
+      <div className={styles.card}>
          <div className={styles.imgWrapper}>
             <img src={item.img} alt="flower" className={styles.img}/>
          </div>

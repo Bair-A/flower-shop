@@ -7,15 +7,9 @@ import {Outlet} from 'react-router-dom';
 const Layout = () => {
    return (
       <div className={styles.wrapper}>
-         <div>
-            <Header/>
-         </div>
-         <div>
-            <Outlet/>
-         </div>
-         <div>
-            <Footer/>
-         </div>
+         <Header/>
+         <Outlet className={styles.content}/>
+         <Footer/>
       </div>
    );
 };

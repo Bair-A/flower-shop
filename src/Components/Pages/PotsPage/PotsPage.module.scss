@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 120px 0 60px;
+  padding: 86px 0 25px;
 }
 
 .container {
@@ -9,8 +9,19 @@
 }
 
 .inner {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  flex-grow: 1;
+}
+
+.btn {
+  display: inline-flex;
+  position: sticky;
+  top: 86px;
+  align-items: center;
+  left: auto;
+  z-index: 10;
+  background-color: #004F44;
+  color: white;
+  padding: 10px 20px;
 }
 
 .headerWrapper {
@@ -21,11 +32,12 @@
   color: #004F44;
 }
 
-.cards {
+.cardsWrapper {
+  justify-content: center;
   display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
+  grid-template-rows: repeat(auto-fit, auto);
 }
 
 

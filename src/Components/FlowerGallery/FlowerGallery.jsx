@@ -18,8 +18,6 @@ const FlowerGallery = () => {
    const [total, setTotal] = useState(0);
    const [disabled, setDisabled] = useState(false);
 
-   if (flowersArr.length >= total && total) setDisabled(true);
-
    async function fetchFlowers() {
       setShowLoader(true);
       try {
@@ -40,7 +38,10 @@ const FlowerGallery = () => {
                   _page: page,
                },
             });
+
             setFlowersArr(pre => [...pre, ...normalizeArr(response.data, flowers, pre)]);
+
+            if (flowersArr.length >= total && total) setDisabled(true);
          }
       } catch (e) {
          alert('Error in Flower Gallery component:' + e.message);
@@ -79,7 +80,6 @@ const FlowerGallery = () => {
          <div className={styles.container}>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower gallery</h2>
-               {/*<a className={styles.showFlowerGallery} href="#">view all</a>*/}
                <NavLink to="/FlowersPage" className={styles.showFlowerGallery}>view all</NavLink>
             </div>
             <div className={styles.sliderWrapper}>

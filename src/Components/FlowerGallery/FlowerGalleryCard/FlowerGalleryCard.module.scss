@@ -1,13 +1,14 @@
 .card {
   width: 100%;
   max-width: 600px;
-
-  padding: 0 15px;
+  background-color: pink;
+  padding: 10px;
   margin: 0 auto;
   font-size: 1em;
 }
 
 .imgWrapper {
+  background-color: yellow;
   width: 100%;
   position: relative;
   padding: 0 0 133% 0;

@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (max-width: 896px) {
     flex-direction: column;
     gap: 64px;
   }
@@ -23,7 +23,7 @@
   max-width: 420px;
   width: 50%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 896px) {
     width: 100%;
     max-width: 564px;
   }
@@ -51,7 +51,7 @@
   display: flex;
   color: #EFF7F5;
 
-  @media (max-width: 768px) {
+  @media (max-width: 896px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,7 +64,7 @@
 }
 
 .arrow {
-  @media (max-width: 768px) {
+  @media (max-width: 896px) {
     transform: rotate(90deg);
   }
 }
@@ -73,7 +73,7 @@
   position: relative;
   width: 50%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 896px) {
     width: 80%;
   }
 

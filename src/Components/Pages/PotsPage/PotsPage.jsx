@@ -5,6 +5,9 @@ import Loader from '../../UI/Loader/Loader';
 import {normalizeArr} from '../../Utils/Utils';
 import axios from 'axios';
 import PotsGalleryCard from '../../PotsGallery/PotsGalleryCard/PotsGalleryCard';
+import CustomBtn from "../../UI/CustomBtn/CustomBtn";
+import {BiCaretLeft} from "react-icons/bi";
+import {Link} from "react-router-dom";
 
 
 const PotsPage = () => {
@@ -23,21 +26,24 @@ const PotsPage = () => {
          if (!potsArr.length) {
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                params: {
-                  _limit: 8,
+                  _limit: 10,
                   _page: 1,
                },
             });
             setPotsArr(normalizeArr(response.data, pots));
             setTotal(response.headers['x-total-count'])
          } else {
-            const page = Math.ceil(potsArr.length / 8) + 1;
+            const page = Math.ceil(potsArr.length / 10) + 1;
             const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
                params: {
-                  _limit: 8,
+                  _limit: 10,
                   _page: page,
                },
             });
+
             setPotsArr(pre => [...pre, ...normalizeArr(response.data, pots, pre)]);
+
+            if (potsArr.length >= total && total) setDisabled(true)
          }
 
       } catch (e) {
@@ -55,11 +61,12 @@ const PotsPage = () => {
       <div className={styles.wrapper} id='pots_gallery'>
          <div className={styles.container}>
             <div className={styles.inner}>
+               <Link to='/' className={styles.btn}><BiCaretLeft/>Back</Link>
                <div className={styles.headerWrapper}>
                   <h2 className={styles.header}>Flower pots</h2>
                   <span className={styles.showFlowerGallery}>Total: {total}</span>
                </div>
-               <div className={styles.cards}>
+               <div className={styles.cardsWrapper}>
                   {showLoader ?
                      <Loader/>
                      :
@@ -68,6 +75,10 @@ const PotsPage = () => {
                      )}
                </div>
                <div className={styles.loadBtnWrapper}>
+                  <CustomBtn children={'Load more'}
+                             onClick={fetchProducts}
+                             color={'green'}
+                             disabled={disabled}/>
                </div>
             </div>
          </div>
