@@ -55,7 +55,6 @@ const FlowersPage = () => {
    return (
       <div className={styles.wrapper}>
          <div className={styles.container}>
-            <Link to='/' className={styles.btn}><BiCaretLeft/>Back</Link>
             <div className={styles.headerWrapper}>
                <h2 className={styles.header}>Flower pots</h2>
                <span className={styles.showFlowerGallery}>Total: {total}</span>

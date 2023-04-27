@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {FiSearch, FiShoppingCart, FiUser} from "react-icons/fi";
 import styles from './Header.module.scss';
 import {NavLink} from 'react-router-dom';
+import {HashLink, NavHashLink} from 'react-router-hash-link';
 import classNames from 'classnames';
 
 const Header = () => {
@@ -78,26 +79,24 @@ const Header = () => {
             <div className={styles.wrapper}>
                <ul className={styles.menu}>
                   <li className={styles.menuItem}>
-                     <a href="#home" className={home} onClick={(prev) => setMenuActive({...prev, home: true})}>Home</a>
-                     {/*<NavLink to="/"*/}
-                     {/*         className={styles.menuLink}>Home*/}
-                     {/*   page</NavLink>*/}
+                     <HashLink to="/#home" className={home}
+                               onClick={(prev) => setMenuActive({...prev, home: true})}>Home</HashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#flower_gallery" className={flowers}
-                        onClick={(prev) => setMenuActive({...prev, flowers: true})}>Flowers</a>
+                     <HashLink to="/#flower_gallery" className={flowers}
+                               onClick={(prev) => setMenuActive({...prev, flowers: true})}>Flowers</HashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#pots_gallery" className={pots}
-                        onClick={(prev) => setMenuActive({...prev, pots: true})}>Pots</a>
+                     <HashLink to="/#pots_gallery" className={pots}
+                               onClick={(prev) => setMenuActive({...prev, pots: true})}>Pots</HashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#reviews" className={reviews}
-                        onClick={(prev) => setMenuActive({...prev, reviews: true})}>Reviews</a>
+                     <HashLink to="/#reviews" className={reviews}
+                               onClick={(prev) => setMenuActive({...prev, reviews: true})}>Reviews</HashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <a href="#contacts" className={contacts}
-                        onClick={(prev) => setMenuActive({...prev, contacts: true})}>Contacts</a>
+                     <HashLink to="/#contacts" className={contacts}
+                               onClick={(prev) => setMenuActive({...prev, contacts: true})}>Contacts</HashLink>
                   </li>
                </ul>
                <div className={burger} onClick={burgerHandler}>
@@ -106,28 +105,28 @@ const Header = () => {
                <div className={burgerList} onClick={burgerHandler}>
                   <ul>
                      <li className={styles.burgerListItem}>
-                        <a href="#home" className={styles.menuLink}>Home</a>
+                        <HashLink to="/#home" className={styles.menuLink}>Home</HashLink>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <a href="#flower_gallery" className={styles.menuLink}>Flowers</a>
+                        <HashLink to="/#flower_gallery" className={styles.menuLink}>Flowers</HashLink>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <a href="#pots_gallery" className={styles.menuLink}>Pots</a>
+                        <HashLink to="/#pots_gallery" className={styles.menuLink}>Pots</HashLink>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <a href="#reviews" className={styles.menuLink}>Reviews</a>
+                        <HashLink to="/#reviews" className={styles.menuLink}>Reviews</HashLink>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <a href="#contacts" className={styles.menuLink}>Contacts</a>
+                        <HashLink to="/#contacts" className={styles.menuLink}>Contacts</HashLink>
                      </li>
                   </ul>
                </div>
                <div className={blackout} onClick={burgerHandler}/>
                <img src={process.env.PUBLIC_URL + '/img/Logo.svg'} alt=""/>
                <div className={styles.iconsPanel}>
-                  <NavLink to="#"><FiSearch className={styles.icon}/></NavLink>
-                  <NavLink to="#"><FiUser className={styles.icon}/></NavLink>
-                  <NavLink to="#"><FiShoppingCart className={styles.icon}/></NavLink>
+                  <HashLink to="#"><FiSearch className={styles.icon}/></HashLink>
+                  <HashLink to="#"><FiUser className={styles.icon}/></HashLink>
+                  <HashLink to="#"><FiShoppingCart className={styles.icon}/></HashLink>
                </div>
             </div>
          </div>

@@ -61,7 +61,6 @@ const PotsPage = () => {
       <div className={styles.wrapper} id='pots_gallery'>
          <div className={styles.container}>
             <div className={styles.inner}>
-               <Link to='/' className={styles.btn}><BiCaretLeft/>Back</Link>
                <div className={styles.headerWrapper}>
                   <h2 className={styles.header}>Flower pots</h2>
                   <span className={styles.showFlowerGallery}>Total: {total}</span>

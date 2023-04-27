@@ -63,6 +63,23 @@
   }
 }
 
+//:global {
+//  .active {
+//    &::after {
+//      content: '';
+//      display: block;
+//      position: absolute;
+//      bottom: -4px;
+//      width: 100%;
+//      height: 2px;
+//      transform: scale(1);
+//      transform-origin: left;
+//      transition: all 0.3s;
+//      background-color: #fff;
+//    }
+//  }
+//}
+
 .menuLinkActive {
   &:after {
     transform: scale(1);
