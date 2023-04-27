@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/flower-shop/static/css/main.c3baf45d.css",
-    "main.js": "/flower-shop/static/js/main.796c18d9.js",
+    "main.css": "/flower-shop/static/css/main.a28e66e1.css",
+    "main.js": "/flower-shop/static/js/main.9021670f.js",
     "static/js/787.2c25d148.chunk.js": "/flower-shop/static/js/787.2c25d148.chunk.js",
     "static/media/Chillax-Medium.ttf": "/flower-shop/static/media/Chillax-Medium.bd1fdefdb415380f3f52.ttf",
     "static/media/Chillax-Regular.ttf": "/flower-shop/static/media/Chillax-Regular.50d2215815ebd5becebc.ttf",
@@ -14,12 +14,12 @@
     "static/media/slick.ttf": "/flower-shop/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/flower-shop/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/flower-shop/index.html",
-    "main.c3baf45d.css.map": "/flower-shop/static/css/main.c3baf45d.css.map",
-    "main.796c18d9.js.map": "/flower-shop/static/js/main.796c18d9.js.map",
+    "main.a28e66e1.css.map": "/flower-shop/static/css/main.a28e66e1.css.map",
+    "main.9021670f.js.map": "/flower-shop/static/js/main.9021670f.js.map",
     "787.2c25d148.chunk.js.map": "/flower-shop/static/js/787.2c25d148.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3baf45d.css",
-    "static/js/main.796c18d9.js"
+    "static/css/main.a28e66e1.css",
+    "static/js/main.9021670f.js"
   ]
 }
