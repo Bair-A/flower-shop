@@ -111,4 +111,8 @@ html {
   font-size: 16px;
 }
 
+.disableScrolling {
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=App.css.map */

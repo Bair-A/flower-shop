@@ -1,58 +1,27 @@
 import React, {useState} from 'react';
 import {FiSearch, FiShoppingCart, FiUser} from "react-icons/fi";
+import {BiCaretUp} from "react-icons/bi";
 import styles from './Header.module.scss';
-import {NavLink} from 'react-router-dom';
 import {HashLink, NavHashLink} from 'react-router-hash-link';
 import classNames from 'classnames';
 
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+   console.log('mob')
+} else {
+   console.log('pc')
+}
+
 const Header = () => {
    const [burgerOpen, setBurgerOpen] = useState(false);
-   const [menuActive, setMenuActive] = useState({
-      home: false,
-      flowers: false,
-      pots: false,
-      reviews: false,
-      contacts: false,
-   });
 
    const home = classNames(
-      [styles.menuLink],
-      {
-         [styles.menuLinkActive]: menuActive.home,
-      }
+      [styles.menuItem],
+      [styles.homeLink],
    )
-
-   const flowers = classNames(
-      [styles.menuLink],
-      {
-         [styles.menuLinkActive]: menuActive.flowers,
-      }
-   )
-
-   const pots = classNames(
-      [styles.menuLink],
-      {
-         [styles.menuLinkActive]: menuActive.pots,
-      }
-   )
-
-   const reviews = classNames(
-      [styles.menuLink],
-      {
-         [styles.menuLinkActive]: menuActive.reviews,
-      }
-   )
-
-   const contacts = classNames(
-      [styles.menuLink],
-      {
-         [styles.menuLinkActive]: menuActive.contacts,
-      }
-   )
-
 
    const burgerHandler = () => {
       setBurgerOpen(cur => !cur);
+      document.body.classList.toggle("disableScrolling");
    }
 
    const burger = classNames(
@@ -78,25 +47,40 @@ const Header = () => {
          <div className={styles.container}>
             <div className={styles.wrapper}>
                <ul className={styles.menu}>
-                  <li className={styles.menuItem}>
-                     <HashLink to="/#home" className={home}
-                               onClick={(prev) => setMenuActive({...prev, home: true})}>Home</HashLink>
+                  <li className={home}>
+                     <NavHashLink to="/#home"
+                                  className={[styles.menuLink, styles.homeMenuLink].join(' ')}
+                     >Home<BiCaretUp className={styles.homeLinkArr}/></NavHashLink>
+                     <ul className={styles.subMenu}>
+                        <li>
+                           <HashLink to="/#flower_gallery"
+                                     className={styles.menuLink}
+                           >Flowers</HashLink>
+                        </li>
+                        <li>
+                           <HashLink to="/#pots_gallery"
+                                     className={styles.menuLink}
+                           >Pots</HashLink>
+                        </li>
+                        <li>
+                           <HashLink to="/#reviews"
+                                     className={styles.menuLink}
+                           >Reviews</HashLink>
+                        </li>
+                        <li>
+                           <HashLink to="/#contacts"
+                                     className={styles.menuLink}
+                           >Contacts</HashLink>
+                        </li>
+                     </ul>
                   </li>
                   <li className={styles.menuItem}>
-                     <HashLink to="/#flower_gallery" className={flowers}
-                               onClick={(prev) => setMenuActive({...prev, flowers: true})}>Flowers</HashLink>
+                     <NavHashLink to="/PotsPage" className={styles.menuLink}
+                     >Pots</NavHashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <HashLink to="/#pots_gallery" className={pots}
-                               onClick={(prev) => setMenuActive({...prev, pots: true})}>Pots</HashLink>
-                  </li>
-                  <li className={styles.menuItem}>
-                     <HashLink to="/#reviews" className={reviews}
-                               onClick={(prev) => setMenuActive({...prev, reviews: true})}>Reviews</HashLink>
-                  </li>
-                  <li className={styles.menuItem}>
-                     <HashLink to="/#contacts" className={contacts}
-                               onClick={(prev) => setMenuActive({...prev, contacts: true})}>Contacts</HashLink>
+                     <NavHashLink to="/FlowersPage" className={styles.menuLink}
+                     >Flowers</NavHashLink>
                   </li>
                </ul>
                <div className={burger} onClick={burgerHandler}>

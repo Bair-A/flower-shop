@@ -8,7 +8,7 @@ const Layout = () => {
    return (
       <div className={styles.wrapper}>
          <Header/>
-         <Outlet className={styles.content}/>
+         <Outlet/>
          <Footer/>
       </div>
    );
