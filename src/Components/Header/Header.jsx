@@ -9,13 +9,13 @@ const Header = () => {
    const [burgerOpen, setBurgerOpen] = useState(false);
    const [pc, setPc] = useState(true);
 
-   // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-   //    console.log('mob')
-   //    // setPc(false);
-   // } else {
-   //    // setPc(true);
-   //    console.log('pc')
-   // }
+   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      console.log('mob')
+      // setPc(false);
+   } else {
+      // setPc(true);
+      console.log('pc')
+   }
 
    const home = classNames(
       [styles.menuItem],
