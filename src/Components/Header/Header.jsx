@@ -5,14 +5,17 @@ import styles from './Header.module.scss';
 import {HashLink, NavHashLink} from 'react-router-hash-link';
 import classNames from 'classnames';
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-   console.log('mob')
-} else {
-   console.log('pc')
-}
-
 const Header = () => {
    const [burgerOpen, setBurgerOpen] = useState(false);
+   const [pc, setPc] = useState(true);
+
+   // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+   //    console.log('mob')
+   //    // setPc(false);
+   // } else {
+   //    // setPc(true);
+   //    console.log('pc')
+   // }
 
    const home = classNames(
       [styles.menuItem],
@@ -75,11 +78,15 @@ const Header = () => {
                      </ul>
                   </li>
                   <li className={styles.menuItem}>
-                     <NavHashLink to="/PotsPage" className={styles.menuLink}
+                     <NavHashLink
+                        to="/PotsPage"
+                        className={styles.menuLink}
                      >Pots</NavHashLink>
                   </li>
                   <li className={styles.menuItem}>
-                     <NavHashLink to="/FlowersPage" className={styles.menuLink}
+                     <NavHashLink
+                        to="/FlowersPage"
+                        className={styles.menuLink}
                      >Flowers</NavHashLink>
                   </li>
                </ul>
@@ -89,19 +96,43 @@ const Header = () => {
                <div className={burgerList} onClick={burgerHandler}>
                   <ul>
                      <li className={styles.burgerListItem}>
-                        <HashLink to="/#home" className={styles.menuLink}>Home</HashLink>
+                        <NavHashLink to="/#home"
+                                     className={[styles.menuLink, styles.homeMenuLink].join(' ')}
+                        >Home<BiCaretUp className={styles.homeLinkArr}/></NavHashLink>
+                        <ul className={styles.subMenu}>
+                           <li>
+                              <HashLink to="/#flower_gallery"
+                                        className={styles.menuLink}
+                              >Flowers</HashLink>
+                           </li>
+                           <li>
+                              <HashLink to="/#pots_gallery"
+                                        className={styles.menuLink}
+                              >Pots</HashLink>
+                           </li>
+                           <li>
+                              <HashLink to="/#reviews"
+                                        className={styles.menuLink}
+                              >Reviews</HashLink>
+                           </li>
+                           <li>
+                              <HashLink to="/#contacts"
+                                        className={styles.menuLink}
+                              >Contacts</HashLink>
+                           </li>
+                        </ul>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <HashLink to="/#flower_gallery" className={styles.menuLink}>Flowers</HashLink>
+                        <NavHashLink
+                           to="/PotsPage"
+                           className={styles.menuLink}
+                        >Pots</NavHashLink>
                      </li>
                      <li className={styles.burgerListItem}>
-                        <HashLink to="/#pots_gallery" className={styles.menuLink}>Pots</HashLink>
-                     </li>
-                     <li className={styles.burgerListItem}>
-                        <HashLink to="/#reviews" className={styles.menuLink}>Reviews</HashLink>
-                     </li>
-                     <li className={styles.burgerListItem}>
-                        <HashLink to="/#contacts" className={styles.menuLink}>Contacts</HashLink>
+                        <NavHashLink
+                           to="/FlowersPage"
+                           className={styles.menuLink}
+                        >Flowers</NavHashLink>
                      </li>
                   </ul>
                </div>
