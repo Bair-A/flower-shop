@@ -82,7 +82,7 @@
   }
 }
 
-.homeMenuLink {
+.homeMenuLinkFlex {
   display: flex;
   align-items: center;
 }
@@ -104,21 +104,23 @@
     .subMenu {
       pointer-events: auto;
       opacity: 1;
-      transform: scale(1, 1);;
+      transform: scale(1, 1);
     }
   }
 }
 
-.subMenu {
-  position: absolute;
-  left: 0;
-  background-color: #004F44;
-  padding: 10px 20px 20px 20px;
-  transform: scale(1, 0);;
-  opacity: 0;
-  transform-origin: top;
-  pointer-events: none;
-  transition: all 0.3s linear;
+.homeLinkArrActiveMob {
+  position: relative;
+
+  .homeLinkArr {
+    transform: rotate(180deg);
+  }
+}
+
+.subMenuActiveMob {
+  pointer-events: auto;
+  opacity: 1;
+  transform: scale(1, 1);
 }
 
 .burger {

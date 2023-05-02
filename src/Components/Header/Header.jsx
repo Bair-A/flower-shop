@@ -1,26 +1,72 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {FiSearch, FiShoppingCart, FiUser} from "react-icons/fi";
 import {BiCaretUp} from "react-icons/bi";
 import styles from './Header.module.scss';
 import {HashLink, NavHashLink} from 'react-router-hash-link';
 import classNames from 'classnames';
+import SubMenu from './SubMenu/SubMenu';
+
 
 const Header = () => {
    const [burgerOpen, setBurgerOpen] = useState(false);
-   const [pc, setPc] = useState(true);
+   const [subMenuActive, setSubMenuActive] = useState(false);
+   const [mobile, setMobile] = useState(false);
 
-   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      console.log('mob')
-      // setPc(false);
-   } else {
-      // setPc(true);
-      console.log('pc')
+   const homeLink = useRef();
+
+   useEffect(() => {
+      homeLink.current.addEventListener('mouseover', subMenuHandler);
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+         setMobile(true);
+      } else {
+         setMobile(false);
+      }
+      return () => {
+         homeLink.current.removeEventListener('mouseover', subMenuHandler);
+      }
+   }, [])
+
+
+   const arrowHandler = (event) => {
+      event.stopPropagation();
+      if (mobile) {
+         setSubMenuActive(!subMenuActive)
+      }
    }
+
+   const homeLinkArr = classNames(
+      [styles.homeLinkArr],
+      {
+         [styles.homeLinkArrActiveMob]: subMenuActive,
+      }
+   )
 
    const home = classNames(
       [styles.menuItem],
-      [styles.homeLink],
+      {
+         [styles.homeLink]: subMenuActive || !mobile,
+      }
    )
+
+   const homeMenuLink = classNames(
+      [styles.menuLink],
+      [styles.homeMenuLinkFlex],
+      {
+         [styles.homeLink]: !mobile,
+      }
+   )
+
+   const subMenuHandler = () => {
+      if (mobile) {
+         setSubMenuActive(!subMenuActive)
+      } else {
+         if (!subMenuActive) setSubMenuActive(true);
+      }
+   }
+
+   const subMenuHandlerOut = () => {
+      if (subMenuActive) setSubMenuActive(false);
+   }
 
    const burgerHandler = () => {
       setBurgerOpen(cur => !cur);
@@ -52,30 +98,38 @@ const Header = () => {
                <ul className={styles.menu}>
                   <li className={home}>
                      <NavHashLink to="/#home"
-                                  className={[styles.menuLink, styles.homeMenuLink].join(' ')}
-                     >Home<BiCaretUp className={styles.homeLinkArr}/></NavHashLink>
-                     <ul className={styles.subMenu}>
-                        <li>
-                           <HashLink to="/#flower_gallery"
-                                     className={styles.menuLink}
-                           >Flowers</HashLink>
-                        </li>
-                        <li>
-                           <HashLink to="/#pots_gallery"
-                                     className={styles.menuLink}
-                           >Pots</HashLink>
-                        </li>
-                        <li>
-                           <HashLink to="/#reviews"
-                                     className={styles.menuLink}
-                           >Reviews</HashLink>
-                        </li>
-                        <li>
-                           <HashLink to="/#contacts"
-                                     className={styles.menuLink}
-                           >Contacts</HashLink>
-                        </li>
-                     </ul>
+                                  className={homeMenuLink}
+                                  ref={homeLink}>
+                        Home
+                        <BiCaretUp className={homeLinkArr}
+                                   onClick={arrowHandler}
+                        />
+                     </NavHashLink>
+                     <SubMenu handler={subMenuHandler}
+                              active={subMenuActive}
+                     />
+                     {/*<ul className={styles.subMenu} onClick={subMenuHandler}>*/}
+                     {/*   <li>*/}
+                     {/*      <HashLink to="/#flower_gallery"*/}
+                     {/*                className={styles.menuLink}*/}
+                     {/*      >Flowers</HashLink>*/}
+                     {/*   </li>*/}
+                     {/*   <li>*/}
+                     {/*      <HashLink to="/#pots_gallery"*/}
+                     {/*                className={styles.menuLink}*/}
+                     {/*      >Pots</HashLink>*/}
+                     {/*   </li>*/}
+                     {/*   <li>*/}
+                     {/*      <HashLink to="/#reviews"*/}
+                     {/*                className={styles.menuLink}*/}
+                     {/*      >Reviews</HashLink>*/}
+                     {/*   </li>*/}
+                     {/*   <li>*/}
+                     {/*      <HashLink to="/#contacts"*/}
+                     {/*                className={styles.menuLink}*/}
+                     {/*      >Contacts</HashLink>*/}
+                     {/*   </li>*/}
+                     {/*</ul>*/}
                   </li>
                   <li className={styles.menuItem}>
                      <NavHashLink

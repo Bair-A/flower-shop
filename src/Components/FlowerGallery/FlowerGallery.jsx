@@ -75,6 +75,7 @@ const FlowerGallery = () => {
             }
          }]
    };
+
    return (
       <div className={styles.wrapper} id='flower_gallery'>
          <div className={styles.container}>
