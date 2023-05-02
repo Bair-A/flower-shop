@@ -14,17 +14,17 @@ const Header = () => {
 
    const homeLink = useRef();
 
-   useEffect(() => {
-      homeLink.current.addEventListener('mouseover', subMenuHandler);
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-         setMobile(true);
-      } else {
-         setMobile(false);
-      }
-      return () => {
-         homeLink.current.removeEventListener('mouseover', subMenuHandler);
-      }
-   }, [])
+   // useEffect(() => {
+   //    homeLink.current.addEventListener('mouseover', subMenuHandler);
+   //    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+   //       setMobile(true);
+   //    } else {
+   //       setMobile(false);
+   //    }
+   //    return () => {
+   //       homeLink.current.removeEventListener('mouseover', subMenuHandler);
+   //    }
+   // }, [])
 
 
    const arrowHandler = (event) => {
@@ -43,9 +43,7 @@ const Header = () => {
 
    const home = classNames(
       [styles.menuItem],
-      {
-         [styles.homeLink]: subMenuActive || !mobile,
-      }
+      [styles.homeLink],
    )
 
    const homeMenuLink = classNames(
@@ -105,31 +103,9 @@ const Header = () => {
                                    onClick={arrowHandler}
                         />
                      </NavHashLink>
-                     <SubMenu handler={subMenuHandler}
-                              active={subMenuActive}
-                     />
-                     {/*<ul className={styles.subMenu} onClick={subMenuHandler}>*/}
-                     {/*   <li>*/}
-                     {/*      <HashLink to="/#flower_gallery"*/}
-                     {/*                className={styles.menuLink}*/}
-                     {/*      >Flowers</HashLink>*/}
-                     {/*   </li>*/}
-                     {/*   <li>*/}
-                     {/*      <HashLink to="/#pots_gallery"*/}
-                     {/*                className={styles.menuLink}*/}
-                     {/*      >Pots</HashLink>*/}
-                     {/*   </li>*/}
-                     {/*   <li>*/}
-                     {/*      <HashLink to="/#reviews"*/}
-                     {/*                className={styles.menuLink}*/}
-                     {/*      >Reviews</HashLink>*/}
-                     {/*   </li>*/}
-                     {/*   <li>*/}
-                     {/*      <HashLink to="/#contacts"*/}
-                     {/*                className={styles.menuLink}*/}
-                     {/*      >Contacts</HashLink>*/}
-                     {/*   </li>*/}
-                     {/*</ul>*/}
+                     <div className={styles.homeMenuContent}>
+                        <SubMenu active={subMenuActive}/>
+                     </div>
                   </li>
                   <li className={styles.menuItem}>
                      <NavHashLink
@@ -153,28 +129,6 @@ const Header = () => {
                         <NavHashLink to="/#home"
                                      className={[styles.menuLink, styles.homeMenuLink].join(' ')}
                         >Home<BiCaretUp className={styles.homeLinkArr}/></NavHashLink>
-                        <ul className={styles.subMenu}>
-                           <li>
-                              <HashLink to="/#flower_gallery"
-                                        className={styles.menuLink}
-                              >Flowers</HashLink>
-                           </li>
-                           <li>
-                              <HashLink to="/#pots_gallery"
-                                        className={styles.menuLink}
-                              >Pots</HashLink>
-                           </li>
-                           <li>
-                              <HashLink to="/#reviews"
-                                        className={styles.menuLink}
-                              >Reviews</HashLink>
-                           </li>
-                           <li>
-                              <HashLink to="/#contacts"
-                                        className={styles.menuLink}
-                              >Contacts</HashLink>
-                           </li>
-                        </ul>
                      </li>
                      <li className={styles.burgerListItem}>
                         <NavHashLink

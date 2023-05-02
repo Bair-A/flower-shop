@@ -29,3 +29,5 @@ yarn-error.log*
 /src/Components/Pages/BasketPage/BasketPage.module.css
 /src/Components/Header/Header.module.css
 /src/Components/Header/Header.module.css.map
+/src/Components/Header/SubMenu/SubMenu.module.css
+/src/Components/Header/SubMenu/SubMenu.module.css.map

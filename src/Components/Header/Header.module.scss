@@ -29,6 +29,15 @@
 
 .menuItem {
   margin: 0 50px 0 0;
+
+  &:hover {
+    .homeMenuContent {
+      opacity: 1;
+      transform: scale(1, 1);
+      transition: all 0.3s linear;
+      pointer-events: auto;
+    }
+  }
 }
 
 .menuLink {
@@ -65,6 +74,16 @@
   }
 }
 
+.homeMenuContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
 :global {
   .active {
     &::after {
@@ -88,6 +107,7 @@
 }
 
 .homeLinkArr {
+  position: relative;
   transition: all 0.3s linear;
   font-size: 1em;
   margin: 0 0 0 5px;
@@ -99,12 +119,6 @@
   &:hover {
     .homeLinkArr {
       transform: rotate(180deg);
-    }
-
-    .subMenu {
-      pointer-events: auto;
-      opacity: 1;
-      transform: scale(1, 1);
     }
   }
 }

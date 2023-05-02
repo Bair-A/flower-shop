@@ -17,7 +17,7 @@ const SubMenu = ({handler, active}) => {
    )
 
    return (
-      <ul className={subMenu} onClick={handler}>
+      <ul className={subMenu}>
          {SumMenuList.map((item) =>
             <li key={item.value}>
                <HashLink className={styles.link} to={item.to}>
