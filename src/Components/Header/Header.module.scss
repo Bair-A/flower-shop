@@ -105,7 +105,7 @@
   margin: 0 0 0 5px;
 }
 
-.homeLinkArrPC {
+.homeSubmenuPC {
   &:hover {
     .homeLinkArr {
       transform: rotate(180deg);
@@ -120,23 +120,17 @@
   }
 }
 
-.homeLinkArrMob {
+.homeSubmenuMob {
+  .homeLinkArr {
+    transform: rotate(180deg);
+  }
+
   .homeMenuContent {
     opacity: 1;
     transform: scale(1, 1);
     transition: all 0.3s linear;
     pointer-events: auto;
   }
-}
-
-.homeLinkArrActiveMob {
-  transform: rotate(180deg);
-}
-
-.subMenuActiveMob {
-  pointer-events: auto;
-  opacity: 1;
-  transform: scale(1, 1);
 }
 
 .burger {
@@ -244,24 +238,5 @@
   pointer-events: auto;
 }
 
-.iconsPanel {
-  width: 150px;
 
-  a {
-    margin: 0 0 0 20px;
-    color: white;
 
-    &:first-child {
-      margin: 0;
-    }
-  }
-}
-
-.icon {
-  font-size: 1.2em;
-  transition: all 0.2s;
-
-  &:hover {
-    font-size: 1.35em;
-  }
-}

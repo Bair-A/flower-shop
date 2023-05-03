@@ -1,10 +1,11 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FiSearch, FiShoppingCart, FiUser} from "react-icons/fi";
 import {BiCaretUp} from "react-icons/bi";
 import styles from './Header.module.scss';
-import {HashLink, NavHashLink} from 'react-router-hash-link';
+import {NavHashLink} from 'react-router-hash-link';
 import classNames from 'classnames';
 import SubMenu from './SubMenu/SubMenu';
+import IconsList from './IconsList/IconsList';
 
 
 const Header = () => {
@@ -34,26 +35,11 @@ const Header = () => {
       }
    }
 
-   const homeLinkArr = classNames(
-      [styles.homeLinkArr],
-      {
-         [styles.homeLinkArrActiveMob]: subMenuActive,
-      }
-   )
-
    const home = classNames(
       [styles.menuItem],
       {
-         [styles.homeLinkArrPC]: !mobile,
-         [styles.homeLinkArrMob]: subMenuActive,
-      }
-   )
-
-   const homeMenuLink = classNames(
-      [styles.menuLink],
-      [styles.homeMenuLinkFlex],
-      {
-         [styles.homeLink]: !mobile,
+         [styles.homeSubmenuPC]: !mobile,
+         [styles.homeSubmenuMob]: subMenuActive,
       }
    )
 
@@ -99,9 +85,9 @@ const Header = () => {
                <ul className={styles.menu}>
                   <li className={home}>
                      <NavHashLink to="/#home"
-                                  className={homeMenuLink}>
+                                  className={[styles.menuLink, styles.homeMenuLinkFlex].join(' ')}>
                         Home
-                        <BiCaretUp className={homeLinkArr}
+                        <BiCaretUp className={styles.homeLinkArr}
                                    onClick={arrowHandler}/>
                      </NavHashLink>
                      <div className={styles.homeMenuContent}>
@@ -147,11 +133,7 @@ const Header = () => {
                </div>
                <div className={blackout} onClick={burgerHandler}/>
                <img src={process.env.PUBLIC_URL + '/img/Logo.svg'} alt=""/>
-               <div className={styles.iconsPanel}>
-                  <HashLink to="#"><FiSearch className={styles.icon}/></HashLink>
-                  <HashLink to="#"><FiUser className={styles.icon}/></HashLink>
-                  <HashLink to="#"><FiShoppingCart className={styles.icon}/></HashLink>
-               </div>
+               <IconsList/>
             </div>
          </div>
       </div>

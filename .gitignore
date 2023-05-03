@@ -31,3 +31,9 @@ yarn-error.log*
 /src/Components/Header/Header.module.css.map
 /src/Components/Header/SubMenu/SubMenu.module.css
 /src/Components/Header/SubMenu/SubMenu.module.css.map
+/src/Components/Pages/SearchPage/SearchPage.module.css
+/src/Components/Pages/SearchPage/SearchPage.module.css.map
+/src/Components/Pages/PersonalPage/PersonalPage.module.css
+/src/Components/Pages/PersonalPage/PersonalPage.module.css.map
+/src/Components/Header/IconsList/IconsList.module.css
+/src/Components/Header/IconsList/IconsList.module.css.map
