@@ -29,15 +29,7 @@
 
 .menuItem {
   margin: 0 50px 0 0;
-
-  &:hover {
-    .homeMenuContent {
-      opacity: 1;
-      transform: scale(1, 1);
-      transition: all 0.3s linear;
-      pointer-events: auto;
-    }
-  }
+  position: relative;
 }
 
 .menuLink {
@@ -113,22 +105,32 @@
   margin: 0 0 0 5px;
 }
 
-.homeLink {
-  position: relative;
-
+.homeLinkArrPC {
   &:hover {
     .homeLinkArr {
       transform: rotate(180deg);
     }
+
+    .homeMenuContent {
+      opacity: 1;
+      transform: scale(1, 1);
+      transition: all 0.3s linear;
+      pointer-events: auto;
+    }
+  }
+}
+
+.homeLinkArrMob {
+  .homeMenuContent {
+    opacity: 1;
+    transform: scale(1, 1);
+    transition: all 0.3s linear;
+    pointer-events: auto;
   }
 }
 
 .homeLinkArrActiveMob {
-  position: relative;
-
-  .homeLinkArr {
-    transform: rotate(180deg);
-  }
+  transform: rotate(180deg);
 }
 
 .subMenuActiveMob {
