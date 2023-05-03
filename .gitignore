@@ -37,3 +37,6 @@ yarn-error.log*
 /src/Components/Pages/PersonalPage/PersonalPage.module.css.map
 /src/Components/Header/IconsList/IconsList.module.css
 /src/Components/Header/IconsList/IconsList.module.css.map
+/src/Components/Header/Menu/Menu.module.css
+/src/Components/Header/Menu/Menu.module.css.map
+/.idea/prettier.xml
