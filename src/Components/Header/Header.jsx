@@ -37,7 +37,7 @@ const Header = () => {
             <span />
           </div>
           <div className={burgerList} onClick={burgerHandler}>
-            <Menu />
+            <Menu isOpen={burgerOpen} />
           </div>
           <div className={blackout} onClick={burgerHandler} />
           <img src={process.env.PUBLIC_URL + "/img/Logo.svg"} alt="" />
