@@ -14,6 +14,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const addToBasket = (item) => {
     const existingItem = products.find((i) => i.id === item.id);
+    console.log(products);
     if (existingItem) {
       setProducts(
         products.map((i) => {

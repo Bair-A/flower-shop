@@ -3,7 +3,7 @@ import styles from "./BasketPage.module.scss";
 import { BasketContext } from "../../../Context/BasketContext";
 
 const BasketPage = () => {
-  const { addToBasket, removeFromBasket, products } = useContext(BasketContext);
+  const { removeFromBasket, products } = useContext(BasketContext);
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -14,13 +14,17 @@ const BasketPage = () => {
             <div className={styles.basketHeaderQuantity}>quantity</div>
             <div className={styles.basketHeaderCost}>cost</div>
           </div>
-          <div className={styles.basketBody}>
-            <div>img</div>
-            <div>name of product</div>
-            <div>quantity of product</div>
-            <div>cost of product</div>
-            <div>X</div>
-          </div>
+          {products.map((item) => (
+            <div className={styles.basketBody}>
+              <div className={styles.imgWrapper}>
+                <img className={styles.img} src={item.img} alt="product img" />
+              </div>
+              <div>{item.name}</div>
+              <div>quantity of product</div>
+              <div>{item.price}</div>
+              <div>X</div>
+            </div>
+          ))}
           <div className={styles.basketFooter}>
             <div className={styles.totalQuantity}>3 quantity</div>
             <div className={styles.totalPrice}>300 total</div>

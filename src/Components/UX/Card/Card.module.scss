@@ -1,14 +1,15 @@
 .card {
-  font-size: 1em;
   width: 100%;
-  padding: 10px;
+  max-width: 600px;
   background-color: pink;
-  max-width: 280px;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 1em;
 }
 
 .imgWrapper {
-  position: relative;
   width: 100%;
+  position: relative;
   padding: 0 0 133% 0;
 }
 
@@ -23,9 +24,8 @@
   display: flex;
   justify-content: space-between;
   margin: 20px 0 0 0;
-  font-weight: 400;
-  line-height: 2rem;
-  letter-spacing: 0.03rem;
+  line-height: 1.5em;
+  letter-spacing: 0.01em;
   color: #004F44;
 }
 
@@ -67,7 +67,6 @@
   margin: 30px 0 0 0;
   display: flex;
   justify-content: space-between;
-  color: #004F44;
 }
 
 .btn {

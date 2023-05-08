@@ -42,3 +42,5 @@ yarn-error.log*
 /.idea/prettier.xml
 /src/Components/Layout/Layout.module.css
 /src/Components/Layout/Layout.module.css.map
+/src/Components/UX/Card/Card.module.css
+/src/Components/UX/Card/Card.module.css.map
