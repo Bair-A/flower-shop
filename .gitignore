@@ -40,3 +40,5 @@ yarn-error.log*
 /src/Components/Header/Menu/Menu.module.css
 /src/Components/Header/Menu/Menu.module.css.map
 /.idea/prettier.xml
+/src/Components/Layout/Layout.module.css
+/src/Components/Layout/Layout.module.css.map

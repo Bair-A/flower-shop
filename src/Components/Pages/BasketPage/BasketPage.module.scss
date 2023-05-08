@@ -1,0 +1,53 @@
+.wrapper {
+  flex-grow: 1;
+  padding: 86px 0 25px 0;
+  color: #004f44;
+  text-align: center;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  margin: 20px 0 40px;
+}
+
+.basket {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  & > * {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 3fr) 1fr;
+    grid-column-gap: 15px;
+  }
+}
+
+.basketHeader {
+  background-color: #F3FFFC;
+  padding: 10px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.basketHeaderName {
+  grid-column-start: 2;
+}
+
+.basketBody {
+
+}
+
+.basketFooter {
+  background-color: #F3FFFC;
+  padding: 10px 0;
+  font-weight: 700;
+}
+
+.totalQuantity {
+  grid-column-start: 3;
+}

@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import styles from "./PersonalPage.module.scss";
 
 const PersonalPage = () => {
-   return (
-      <div>
-
-      </div>
-   );
+  return <div className={styles.wrapper}></div>;
 };
 
 export default PersonalPage;
