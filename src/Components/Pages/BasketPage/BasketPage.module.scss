@@ -39,7 +39,7 @@
 }
 
 .basketBody {
-
+  align-items: center;
 }
 
 .img {
@@ -63,4 +63,13 @@
 
 .totalQuantity {
   grid-column-start: 3;
+}
+
+.deleteBtn {
+  background-color: inherit;
+}
+
+.deleteBtnIcon {
+  color: #004f44;
+  font-size: 1.5em;
 }

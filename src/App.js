@@ -10,28 +10,37 @@ import BasketPage from "./Components/Pages/BasketPage/BasketPage";
 import SearchPage from "./Components/Pages/SearchPage/SearchPage";
 import { BasketContext } from "./Context/BasketContext";
 
+const LOCAL_STORAGE_KEY = "basket";
+const setLocalStorage = (value) => {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value));
+};
+
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
+  );
   const addToBasket = (item) => {
     const existingItem = products.find((i) => i.id === item.id);
-    console.log(products);
     if (existingItem) {
-      setProducts(
-        products.map((i) => {
+      setProducts((current) => {
+        return current.map((i) => {
           if (i.id === item.id) {
             return { ...i, quantity: i.quantity + 1 };
           } else {
             return i;
           }
-        })
-      );
+        });
+      });
+      setLocalStorage(products);
     } else {
-      setProducts([...products, { ...item, quantity: 1 }]);
+      setProducts((current) => [...current, { ...item, quantity: 1 }]);
+      setLocalStorage(products);
     }
   };
 
-  const removeFromBasket = (itemId) => {
-    setProducts(products.filter((i) => i.id !== itemId));
+  const removeFromBasket = (item) => {
+    setProducts((current) => current.filter((i) => i.id !== item.id));
+    setLocalStorage(products);
   };
 
   return (
