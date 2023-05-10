@@ -22,25 +22,26 @@ function App() {
   const addToBasket = (item) => {
     const existingItem = products.find((i) => i.id === item.id);
     if (existingItem) {
-      setProducts((current) => {
-        return current.map((i) => {
-          if (i.id === item.id) {
-            return { ...i, quantity: i.quantity + 1 };
-          } else {
-            return i;
-          }
-        });
+      const newProducts = products.map((i) => {
+        if (i.id === item.id) {
+          return { ...i, quantity: i.quantity + 1 };
+        } else {
+          return i;
+        }
       });
-      setLocalStorage(products);
+      setProducts(newProducts);
+      setLocalStorage(newProducts);
     } else {
-      setProducts((current) => [...current, { ...item, quantity: 1 }]);
-      setLocalStorage(products);
+      const newProducts = [...products, { ...item, quantity: 1 }];
+      setProducts(newProducts);
+      setLocalStorage(newProducts);
     }
   };
 
   const removeFromBasket = (item) => {
-    setProducts((current) => current.filter((i) => i.id !== item.id));
-    setLocalStorage(products);
+    const newProducts = products.filter((i) => i.id !== item.id);
+    setProducts(newProducts);
+    setLocalStorage(newProducts);
   };
 
   return (

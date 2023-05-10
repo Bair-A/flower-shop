@@ -13,6 +13,8 @@ const BasketPage = () => {
           return sum + item.price;
         }, 0)
       );
+    } else {
+      setTotalPrice(0);
     }
   }, [products]);
 
