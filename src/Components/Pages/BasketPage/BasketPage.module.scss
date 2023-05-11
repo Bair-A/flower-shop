@@ -38,23 +38,6 @@
   grid-column-start: 2;
 }
 
-.basketBody {
-  align-items: center;
-}
-
-.img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.imgWrapper {
-  width: 100%;
-  position: relative;
-  padding: 0 0 133% 0;
-}
-
 .basketFooter {
   background-color: #F3FFFC;
   padding: 10px 0;
@@ -65,9 +48,6 @@
   grid-column-start: 3;
 }
 
-.deleteBtn {
-  background-color: inherit;
-}
 
 .deleteBtnIcon {
   color: #004f44;

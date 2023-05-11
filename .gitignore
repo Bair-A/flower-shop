@@ -44,3 +44,7 @@ yarn-error.log*
 /src/Components/Layout/Layout.module.css.map
 /src/Components/UX/Card/Card.module.css
 /src/Components/UX/Card/Card.module.css.map
+/src/Components/UX/BasketItem/BasketItem.css
+/src/Components/UX/BasketItem/BasketItem.css.map
+/src/Components/UX/BasketItem/BasketItem.module.css
+/src/Components/UX/BasketItem/BasketItem.module.css.map

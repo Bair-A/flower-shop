@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./BasketPage.module.scss";
 import { BasketContext } from "../../../Context/BasketContext";
 import { AiOutlineClose } from "react-icons/ai";
+import BasketItem from "../../UX/BasketItem/BasketItem";
 
 const BasketPage = () => {
   const { removeFromBasket, products } = useContext(BasketContext);
@@ -29,22 +30,7 @@ const BasketPage = () => {
             <div className={styles.basketHeaderCost}>cost</div>
           </div>
           {products.map((item) => (
-            <div className={styles.basketBody} key={item.id}>
-              <div className={styles.imgWrapper}>
-                <img className={styles.img} src={item.img} alt="product img" />
-              </div>
-              <div>{item.name}</div>
-              <div>quantity of product</div>
-              <div>{item.price}</div>
-              <div>
-                <button
-                  onClick={() => removeFromBasket(item)}
-                  className={styles.deleteBtn}
-                >
-                  <AiOutlineClose className={styles.deleteBtnIcon} />
-                </button>
-              </div>
-            </div>
+            <BasketItem item={item} key={item.id} />
           ))}
           <div className={styles.basketFooter}>
             <div className={styles.totalQuantity}>
