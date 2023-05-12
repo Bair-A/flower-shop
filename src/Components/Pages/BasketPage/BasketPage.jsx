@@ -1,17 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./BasketPage.module.scss";
 import { BasketContext } from "../../../Context/BasketContext";
-import { AiOutlineClose } from "react-icons/ai";
 import BasketItem from "../../UX/BasketItem/BasketItem";
 
 const BasketPage = () => {
-  const { removeFromBasket, products } = useContext(BasketContext);
+  const { products } = useContext(BasketContext);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     if (products.length) {
       setTotalPrice(
         products.reduce((sum, item) => {
-          return sum + item.price;
+          return sum + item.price * item.quantity;
         }, 0)
       );
     } else {
@@ -27,7 +26,7 @@ const BasketPage = () => {
           <div className={styles.basketHeader}>
             <div className={styles.basketHeaderName}>name</div>
             <div className={styles.basketHeaderQuantity}>quantity</div>
-            <div className={styles.basketHeaderCost}>cost</div>
+            <div className={styles.basketHeaderCost}>total price</div>
           </div>
           {products.map((item) => (
             <BasketItem item={item} key={item.id} />
@@ -36,8 +35,12 @@ const BasketPage = () => {
             <div className={styles.totalQuantity}>
               {products.length} quantity
             </div>
-            <div className={styles.totalPrice}>{totalPrice} total</div>
+            <div>{totalPrice} total</div>
           </div>
+        </div>
+        <div className={styles.basketBtns}>
+          <button className={styles.clear}>Clear</button>
+          <button className={styles.buy}>Buy</button>
         </div>
       </div>
     </div>

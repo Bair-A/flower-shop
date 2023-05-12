@@ -15,6 +15,32 @@
   padding: 0 0 133% 0;
 }
 
+.countWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.count {
+  pointer-events: none;
+
+  &::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    appearance: none;
+  }
+}
+
+.btnsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrowBtn {
+  background-color: inherit;
+  font-size: 1.2em;
+  color: #004F44;
+}
+
 .deleteBtn {
   background-color: inherit;
   font-size: 1.4em;

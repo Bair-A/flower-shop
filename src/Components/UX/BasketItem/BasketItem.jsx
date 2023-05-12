@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import styles from "./BasketItem.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import { BasketContext } from "../../../Context/BasketContext";
+import { GoChevronUp, GoChevronDown } from "react-icons/go";
 
 const BasketItem = ({ item }) => {
-  // const [count, setCount] = useState();
-  const { removeFromBasket, changeCount, incrementCount, decrementCount } =
+  const { removeFromBasket, incrementCount, decrementCount } =
     useContext(BasketContext);
 
   return (
@@ -14,17 +14,31 @@ const BasketItem = ({ item }) => {
         <img className={styles.img} src={item.img} alt="product img" />
       </div>
       <div>{item.name}</div>
-      <div className={styles.count}>
+      <div className={styles.countWrapper}>
         <input
-          className={styles.input}
+          className={styles.count}
           type="number"
           min="1"
           max="100"
           value={item.quantity}
-          onChange={(e) => changeCount(item, e.target.value)}
+          onChange={() => {}}
         />
+        <div className={styles.btnsWrapper}>
+          <button
+            className={styles.arrowBtn}
+            onClick={() => incrementCount(item)}
+          >
+            <GoChevronUp />
+          </button>
+          <button
+            className={styles.arrowBtn}
+            onClick={() => decrementCount(item)}
+          >
+            <GoChevronDown />
+          </button>
+        </div>
       </div>
-      <div>{item.price}</div>
+      <div>{item.price * item.quantity}</div>
       <div>
         <button
           onClick={() => removeFromBasket(item)}

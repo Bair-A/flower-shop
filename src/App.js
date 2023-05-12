@@ -45,44 +45,47 @@ function App() {
   };
 
   const incrementCount = (item) => {
+    console.log(item);
     const newProducts = products.map((i) => {
+      console.log(i);
       if (i.id === item.id) {
+        console.log(i.quantity);
         return { ...i, quantity: i.quantity + 1 };
       }
+      return i;
     });
     setProducts(newProducts);
     setLocalStorage(newProducts);
   };
 
   const decrementCount = (item, value) => {
+    console.log("dec");
     const newProducts = products.map((i) => {
       if (i.id === item.id) {
-        if (i.quantity - 1) return products.filter((i) => i.id !== item.id);
-        return { ...i, quantity: i.quantity - 1 };
-      } else {
-        return i;
+        return { ...i, quantity: i.quantity - 1 > 0 ? i.quantity - 1 : 1 };
       }
+      return i;
     });
     setProducts(newProducts);
     setLocalStorage(newProducts);
   };
 
-  const changeCount = (item, value) => {
-    if (item.quantity <= 0) {
-      removeFromBasket(item);
-      return;
-    }
-    // if (value === "") return;
-    const newProducts = products.map((i) => {
-      if (i.id === item.id) {
-        return { ...i, quantity: value };
-      } else {
-        return i;
-      }
-    });
-    setProducts(newProducts);
-    setLocalStorage(newProducts);
-  };
+  // const changeCount = (item, value) => {
+  //   if (item.quantity <= 0) {
+  //     removeFromBasket(item);
+  //     return;
+  //   }
+  //   // if (value === "") return;
+  //   const newProducts = products.map((i) => {
+  //     if (i.id === item.id) {
+  //       return { ...i, quantity: value };
+  //     } else {
+  //       return i;
+  //     }
+  //   });
+  //   setProducts(newProducts);
+  //   setLocalStorage(newProducts);
+  // };
 
   return (
     <BasketContext.Provider
@@ -90,7 +93,6 @@ function App() {
         addToBasket,
         removeFromBasket,
         products,
-        changeCount,
         incrementCount,
         decrementCount,
       }}
