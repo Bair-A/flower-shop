@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from "./BasketItem.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import { BasketContext } from "../../../Context/BasketContext";
-import { GoChevronUp, GoChevronDown } from "react-icons/go";
+import { GoChevronDown, GoChevronUp } from "react-icons/go";
 
 const BasketItem = ({ item }) => {
   const { removeFromBasket, incrementCount, decrementCount } =
@@ -13,7 +13,7 @@ const BasketItem = ({ item }) => {
       <div className={styles.imgWrapper}>
         <img className={styles.img} src={item.img} alt="product img" />
       </div>
-      <div>{item.name}</div>
+      <div className={styles.textField}>{item.name}</div>
       <div className={styles.countWrapper}>
         <input
           className={styles.count}
@@ -38,8 +38,8 @@ const BasketItem = ({ item }) => {
           </button>
         </div>
       </div>
-      <div>{item.price * item.quantity}</div>
-      <div>
+      <div className={styles.textField}>{item.price * item.quantity}</div>
+      <div className={styles.textField}>
         <button
           onClick={() => removeFromBasket(item)}
           className={styles.deleteBtn}

@@ -13,6 +13,13 @@
   width: 100%;
   position: relative;
   padding: 0 0 133% 0;
+  @media(max-width: 650px) {
+    grid-row: span 2;
+  }
+}
+
+.textField {
+  text-align: center;
 }
 
 .countWrapper {

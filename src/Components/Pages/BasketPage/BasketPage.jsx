@@ -2,10 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./BasketPage.module.scss";
 import { BasketContext } from "../../../Context/BasketContext";
 import BasketItem from "../../UX/BasketItem/BasketItem";
+import className from "classnames";
 
 const BasketPage = () => {
-  const { products } = useContext(BasketContext);
+  const { products, clearBasket } = useContext(BasketContext);
   const [totalPrice, setTotalPrice] = useState(0);
+  const btn = className([styles.btn], {
+    [styles.disabled]: !products.length,
+  });
+
   useEffect(() => {
     if (products.length) {
       setTotalPrice(
@@ -17,6 +22,9 @@ const BasketPage = () => {
       setTotalPrice(0);
     }
   }, [products]);
+  const buyBtnHandler = () => {
+    alert("sorry! the buying functionality is not working yet");
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -39,8 +47,12 @@ const BasketPage = () => {
           </div>
         </div>
         <div className={styles.basketBtns}>
-          <button className={styles.clear}>Clear</button>
-          <button className={styles.buy}>Buy</button>
+          <button className={btn} onClick={clearBasket}>
+            Clear
+          </button>
+          <button className={btn} onClick={buyBtnHandler}>
+            Buy
+          </button>
         </div>
       </div>
     </div>

@@ -19,7 +19,12 @@ function App() {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []
   );
+  const [showTick, setShowTick] = useState(false);
+  const [currentId, setCurrentId] = useState(0);
   const addToBasket = (item) => {
+    setShowTick(true);
+    setCurrentId(item.id);
+    setTimeout(() => setShowTick(false), 1000);
     const existingItem = products.find((i) => i.id === item.id);
     if (existingItem) {
       const newProducts = products.map((i) => {
@@ -45,11 +50,8 @@ function App() {
   };
 
   const incrementCount = (item) => {
-    console.log(item);
     const newProducts = products.map((i) => {
-      console.log(i);
       if (i.id === item.id) {
-        console.log(i.quantity);
         return { ...i, quantity: i.quantity + 1 };
       }
       return i;
@@ -59,7 +61,6 @@ function App() {
   };
 
   const decrementCount = (item, value) => {
-    console.log("dec");
     const newProducts = products.map((i) => {
       if (i.id === item.id) {
         return { ...i, quantity: i.quantity - 1 > 0 ? i.quantity - 1 : 1 };
@@ -70,22 +71,9 @@ function App() {
     setLocalStorage(newProducts);
   };
 
-  // const changeCount = (item, value) => {
-  //   if (item.quantity <= 0) {
-  //     removeFromBasket(item);
-  //     return;
-  //   }
-  //   // if (value === "") return;
-  //   const newProducts = products.map((i) => {
-  //     if (i.id === item.id) {
-  //       return { ...i, quantity: value };
-  //     } else {
-  //       return i;
-  //     }
-  //   });
-  //   setProducts(newProducts);
-  //   setLocalStorage(newProducts);
-  // };
+  const clearBasket = () => {
+    setProducts([]);
+  };
 
   return (
     <BasketContext.Provider
@@ -95,6 +83,9 @@ function App() {
         products,
         incrementCount,
         decrementCount,
+        clearBasket,
+        showTick,
+        currentId,
       }}
     >
       <div className="App">

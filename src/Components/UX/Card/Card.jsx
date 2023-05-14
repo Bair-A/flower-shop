@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import styles from "./Card.module.scss";
 import { BasketContext } from "../../../Context/BasketContext";
+import { BiCheckCircle } from "react-icons/bi";
+import className from "classnames";
 
 const Card = ({ item }) => {
-  const { addToBasket } = useContext(BasketContext);
+  const { addToBasket, showTick, currentId } = useContext(BasketContext);
+  const tick = className([styles.tick], {
+    [styles.tickActive]: showTick && currentId === item.id,
+  });
 
   return (
     <div className={styles.card}>
+      <BiCheckCircle className={tick} />
       <div className={styles.imgWrapper}>
         <img src={item.img} alt="flower" className={styles.img} />
       </div>
@@ -26,9 +32,11 @@ const Card = ({ item }) => {
               <div className={[styles.color, styles.brown].join(" ")} />
             </div>
           </div>
-          <button className={styles.btn} onClick={() => addToBasket(item)}>
-            Buy
-          </button>
+          <div>
+            <button className={styles.btn} onClick={() => addToBasket(item)}>
+              Buy
+            </button>
+          </div>
         </div>
       </div>
     </div>
