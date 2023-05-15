@@ -48,3 +48,5 @@ yarn-error.log*
 /src/Components/UX/BasketItem/BasketItem.css.map
 /src/Components/UX/BasketItem/BasketItem.module.css
 /src/Components/UX/BasketItem/BasketItem.module.css.map
+/src/Components/UX/SelectProduct/SelectProduct.module.css
+/src/Components/UX/SelectProduct/SelectProduct.module.css.map

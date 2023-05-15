@@ -2,3 +2,31 @@
   flex-grow: 1;
   padding: 86px 0 25px 0;
 }
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 2fr;
+    grid-column-gap: 10px;
+}
+
+.cardsWrapper {
+  margin: 40px 0 0;
+
+  justify-content: center;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
+  grid-template-rows: repeat(auto-fit, auto);
+}
+
+.loadBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0;
+}
