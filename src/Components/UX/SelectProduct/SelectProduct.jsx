@@ -13,18 +13,13 @@ const SelectProduct = ({ options, title, onSelect }) => {
           name="product"
           id="selectProduct"
           onChange={onSelect}
+          // defaultValue={default}
         >
-          {options.map((item) =>
-            item.selected ? (
-              <option selected value={item.value} key={item.value}>
-                {item.name}
-              </option>
-            ) : (
-              <option value={item.value} key={item.value}>
-                {item.name}
-              </option>
-            )
-          )}
+          {options.map((item) => (
+            <option value={item.value} key={item.value}>
+              {item.name}
+            </option>
+          ))}
         </select>
       </div>
     </div>

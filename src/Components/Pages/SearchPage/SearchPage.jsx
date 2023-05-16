@@ -21,24 +21,26 @@ const sortOptions = [
 ];
 
 const SearchPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
   const [product, setProduct] = useState(flowers);
   const [productsArr, setProductsArr] = useState([]);
   const [showLoader, setShowLoader] = useState(false);
   const [total, setTotal] = useState(0);
   const [disabled, setDisabled] = useState(false);
+  const [sort, setSort] = useState("default");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
-  const selectProduct = (e) => {
-    if (e.target.value === "flowers") {
-      setProduct(flowers);
-      fetchFlowers(flowers, true);
-    }
-    if (e.target.value === "pots") {
-      setProduct(pots);
-      fetchFlowers(pots, true);
-    }
+  const sortBy = (arr, sort) => {
+    console.log("sortBy");
+    if (sort === "ascending")
+      return structuredClone(arr).sort((a, b) => a.price - b.price);
+    if (sort === "descending")
+      return structuredClone(arr).sort((a, b) => b.price - a.price);
+    return structuredClone(arr).sort((a, b) => a.id - b.id);
   };
 
   async function fetchFlowers(product, first = false) {
+    console.log("fetchFlowers");
     setShowLoader(true);
     try {
       if (!productsArr.length || first) {
@@ -51,7 +53,8 @@ const SearchPage = () => {
             },
           }
         );
-        setProductsArr(normalizeArr(response.data, product));
+        setProductsArr(sortBy(normalizeArr(response.data, product), sort));
+        setFilteredProducts(sortBy(normalizeArr(response.data, product), sort));
         setTotal(response.headers["x-total-count"]);
       } else {
         const page = Math.ceil(productsArr.length / 9) + 1;
@@ -64,11 +67,21 @@ const SearchPage = () => {
             },
           }
         );
-
-        setProductsArr((pre) => [
-          ...pre,
-          ...normalizeArr(response.data, product, pre),
-        ]);
+        setFilteredProducts(
+          sortBy(
+            [
+              ...productsArr,
+              ...normalizeArr(response.data, product, productsArr),
+            ],
+            sort
+          )
+        );
+        setProductsArr((pre) => {
+          return sortBy(
+            [...pre, ...normalizeArr(response.data, product, pre)],
+            sort
+          );
+        });
 
         if (productsArr.length >= total && total) setDisabled(true);
       }
@@ -78,6 +91,33 @@ const SearchPage = () => {
       setShowLoader(false);
     }
   }
+
+  const selectProduct = (e) => {
+    if (e.target.value === "flowers") {
+      setProduct(flowers);
+      fetchFlowers(flowers, true);
+    }
+    if (e.target.value === "pots") {
+      setProduct(pots);
+      fetchFlowers(pots, true);
+    }
+  };
+
+  const sortSelectorHandler = (e) => {
+    setSort(e.target.value);
+    setProductsArr(sortBy(productsArr, e.target.value));
+    setFilteredProducts(sortBy(productsArr, e.target.value));
+  };
+
+  const searchHandler = (query) => {
+    console.log(query);
+    setSearchQuery(query);
+    setFilteredProducts(
+      [...productsArr].filter((item) =>
+        item.name.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  };
 
   useEffect(() => {
     fetchFlowers(product);
@@ -91,19 +131,25 @@ const SearchPage = () => {
             options={productOptions}
             title={"choose a product"}
             onSelect={selectProduct}
+            default={"flowers"}
           />
           <SelectProduct
             options={sortOptions}
             title={"sort by"}
-            onSelect={selectProduct}
+            default={"default"}
+            onSelect={sortSelectorHandler}
           />
-          <Search title={"search a product"} />
+          <Search
+            searchQuery={searchQuery}
+            title={"search a product"}
+            onChange={searchHandler}
+          />
         </div>
         <div className={styles.cardsWrapper}>
           {showLoader ? (
             <Loader />
           ) : (
-            productsArr.map((item) => (
+            filteredProducts.map((item) => (
               <FlowerGalleryCard key={item.id} item={item} />
             ))
           )}

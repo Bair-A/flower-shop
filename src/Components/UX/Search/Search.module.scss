@@ -1,6 +1,10 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+          grid-column: span 2;
+      }
 }
 
 .label {
