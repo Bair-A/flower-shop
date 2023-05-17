@@ -31,7 +31,6 @@ const SearchPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const sortBy = (arr, sort) => {
-    console.log("sortBy");
     if (sort === "ascending")
       return structuredClone(arr).sort((a, b) => a.price - b.price);
     if (sort === "descending")
@@ -40,7 +39,6 @@ const SearchPage = () => {
   };
 
   async function fetchFlowers(product, first = false) {
-    console.log("fetchFlowers");
     setShowLoader(true);
     try {
       if (!productsArr.length || first) {
@@ -110,7 +108,6 @@ const SearchPage = () => {
   };
 
   const searchHandler = (query) => {
-    console.log(query);
     setSearchQuery(query);
     setFilteredProducts(
       [...productsArr].filter((item) =>
