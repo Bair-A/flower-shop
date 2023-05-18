@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   @media (max-width: 896px) {
     flex-direction: column;
     gap: 64px;
@@ -85,6 +86,16 @@
   }
 }
 
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -300%;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .gallery {
   position: absolute;
   top: 0;
@@ -96,9 +107,20 @@
   grid-template: repeat(2, 49.5%) / repeat(3, 33%);
 }
 
+.galleryItem {
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
 .galleryItemBig {
   grid-column: span 2;
   grid-row: span 2;
+
+  @media (max-width: 600px) {
+          grid-column: span 3;
+            grid-row: span 2;
+      }
 }
 
 

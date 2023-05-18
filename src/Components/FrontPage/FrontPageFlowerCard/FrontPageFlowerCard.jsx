@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 import styles from "./FrontPageFlowerCard.module.scss";
 
-
-const FrontPageFlowerCard = ({src, alt, chapter, title, text}) => {
-   return (
-      <div className={styles.card}>
-         <div className={styles.chapter}>{chapter}</div>
-         <div className={styles.overlay}>
-            <div className={styles.textWrapper}>
-               <h2 className={styles.title}>{title}</h2>
-               <p className={styles.text}>{text}</p>
-            </div>
-         </div>
-         <img className={styles.img} src={src} alt={alt}/>
+const FrontPageFlowerCard = ({ item, onClick }) => {
+  return (
+    <div className={styles.card} onClick={() => onClick(item)}>
+      <div className={styles.chapter}>{item.chapter}</div>
+      <div className={styles.overlay}>
+        <div className={styles.textWrapper}>
+          <h2 className={styles.title}>{item.title}</h2>
+          <p className={styles.text}>{item.text}</p>
+        </div>
       </div>
-   );
+      <img
+        className={styles.img}
+        src={process.env.PUBLIC_URL + item.src}
+        alt={"flower image"}
+      />
+    </div>
+  );
 };
 
 export default FrontPageFlowerCard;

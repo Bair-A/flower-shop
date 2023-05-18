@@ -19,10 +19,10 @@ const IconsList = () => {
           {item.id === 2 ? (
             <>
               <label>
-                {products.length}
                 <NavHashLink to={item.to} id="basket" className={styles.link}>
                   {item.icon}
                 </NavHashLink>
+                <span className={styles.count}>{products.length}</span>
               </label>
             </>
           ) : (

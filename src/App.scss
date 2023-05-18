@@ -118,24 +118,6 @@ html {
   font-size: 16px;
 }
 
-@media(max-width: 960px) {
-  .App {
-    //font-size: 20px;
-  }
-}
-
-@media(max-width: 768px) {
-  .App {
-    //font-size: 24px;
-  }
-}
-
-@media(max-width: 540px) {
-  .App {
-    //font-size: 30px;
-  }
-}
-
 .disableScrolling {
   overflow: hidden;
 }
